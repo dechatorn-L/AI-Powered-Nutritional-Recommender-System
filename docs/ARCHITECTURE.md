@@ -134,9 +134,9 @@ sequenceDiagram
 ## 5. Scientific References & Literature Citations
 
 1. **Nutrient Rich Foods (NRF) Index**:
-   * **Drewnowski, A. (2009)**. *The Nutrient Rich Foods Index helps to identify healthy, affordable foods*. **The American Journal of Clinical Nutrition**, 89(4), 1071–1076. [DOI: 10.3945/ajcn.2008.26901](https://doi.org/10.3945/ajcn.2008.26901)
-   * **Fulgoni, V. L., Keast, D. R., & Drewnowski, A. (2009)**. *Development and validation of the nutrient-rich foods index: a tool to measure the nutrient density of foods*. **The Journal of Nutrition**, 139(8), 1549–1554. [DOI: 10.3945/jn.108.101360](https://doi.org/10.3945/jn.108.101360)
-   * **Drewnowski, A., & Fulgoni, V. L. (2014)**. *Nutrient profiling of foods: creating the Nutrient-Rich Foods index*. **Nutrition Reviews**, 72(11), 688–698. [DOI: 10.1111/nure.12147](https://doi.org/10.1111/nure.12147)
+   * **Drewnowski, A. (2010)**. *The Nutrient Rich Foods Index helps to identify healthy, affordable foods*. **The American Journal of Clinical Nutrition**, 91(4), 1095S–1101S. [DOI: 10.3945/ajcn.2010.28450D](https://doi.org/10.3945/ajcn.2010.28450D) · [PubMed: 20200262](https://pubmed.ncbi.nlm.nih.gov/20200262/)
+   * **Fulgoni, V. L., Keast, D. R., & Drewnowski, A. (2009)**. *Development and validation of the nutrient-rich foods index: a tool to measure nutritional quality of foods*. **The Journal of Nutrition**, 139(8), 1549–1554. [DOI: 10.3945/jn.108.101360](https://doi.org/10.3945/jn.108.101360) · [PubMed: 19549759](https://pubmed.ncbi.nlm.nih.gov/19549759/)
+   * **Drewnowski, A. (2008)**. *Nutrient profiling of foods: creating the Nutrient-Rich Foods index*. **Nutrition Reviews**, 66(1), 23–39. [DOI: 10.1111/j.1753-4887.2007.00003.x](https://doi.org/10.1111/j.1753-4887.2007.00003.x) · [PubMed: 18254866](https://pubmed.ncbi.nlm.nih.gov/18254866/)
 
 2. **Atwater Caloric Factor Energy Balancing**:
    * **Atwater, W. O., & Bryant, A. P. (1900)**. *The Chemical Composition of American Food Materials*. **U.S. Department of Agriculture**, Office of Experiment Stations, Bulletin No. 28.
