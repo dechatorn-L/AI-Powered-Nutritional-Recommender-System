@@ -28,7 +28,7 @@
 
 ```mermaid
 graph TD
-    subgraph Data Acquisition & Preprocessing Layer
+    subgraph DataPrep ["Data Acquisition & Preprocessing Layer"]
         A1["Raw Nutrition Dataset<br/>(data/raw/Indian_Food_Nutrition_Raw.csv)"] --> A2["Data Ingestion & Cleaning<br/>(src/preprocessing/data_processor.py)"]
         A2 --> A3["Median Imputation<br/>(Vitamin C & Folate)"]
         A3 --> A4["Feature Engineering<br/>(NRF 5.3 Index, Binary Tags, Nutri-Grades)"]
@@ -36,7 +36,7 @@ graph TD
         A6["Curated Embedded Fallback<br/>(src/default_data.py)"] -.->|Self-Healing Fallback| A5
     end
 
-    subgraph Core ML & Nutrition Intelligence Engine (src/engine.py)
+    subgraph CoreEngine ["Core ML & Nutrition Intelligence Engine (src/engine.py)"]
         A5 --> B1["Unified NutritionAIEngine<br/>(Singleton & In-Memory Cache)"]
         B1 --> B2["KNN Recommender Subsystem<br/>(Dish-to-Dish & Target-to-Dish)"]
         B1 --> B3["K-Means Clusterer<br/>(K=5 Culinary Profiles)"]
@@ -45,7 +45,7 @@ graph TD
         B1 --> B6["Model Evaluation & Insights<br/>(Confusion Matrix & Feature Importances)"]
     end
 
-    subgraph Service Delivery & Interface Layer
+    subgraph ServiceLayer ["Service Delivery & Interface Layer"]
         B1 --> C1["Production REST API Server<br/>(server.py / src/web/server.py)"]
         B1 --> C2["Interactive Streamlit Dashboard<br/>(app_streamlit.py)"]
         B1 --> C3["Python SDK Facade<br/>(engine.py)"]
