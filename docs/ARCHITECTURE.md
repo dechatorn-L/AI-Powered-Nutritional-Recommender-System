@@ -128,3 +128,25 @@ sequenceDiagram
     Server-->>User: HTTP 200 OK (JSON)
     User->>User: Render Live Radar Chart & Recommendation Cards
 ```
+
+---
+
+## 5. Scientific References & Literature Citations
+
+1. **Nutrient Rich Foods (NRF) Index**:
+   * **Drewnowski, A. (2009)**. *The Nutrient Rich Foods Index helps to identify healthy, affordable foods*. **The American Journal of Clinical Nutrition**, 89(4), 1071–1076. [DOI: 10.3945/ajcn.2008.26901](https://doi.org/10.3945/ajcn.2008.26901)
+   * **Fulgoni, V. L., Keast, D. R., & Drewnowski, A. (2009)**. *Development and validation of the nutrient-rich foods index: a tool to measure the nutrient density of foods*. **The Journal of Nutrition**, 139(8), 1549–1554. [DOI: 10.3945/jn.108.101360](https://doi.org/10.3945/jn.108.101360)
+   * **Drewnowski, A., & Fulgoni, V. L. (2014)**. *Nutrient profiling of foods: creating the Nutrient-Rich Foods index*. **Nutrition Reviews**, 72(11), 688–698. [DOI: 10.1111/nure.12147](https://doi.org/10.1111/nure.12147)
+
+2. **Atwater Caloric Factor Energy Balancing**:
+   * **Atwater, W. O., & Bryant, A. P. (1900)**. *The Chemical Composition of American Food Materials*. **U.S. Department of Agriculture**, Office of Experiment Stations, Bulletin No. 28.
+   * **FAO (2003)**. *Food Energy - Methods of Analysis and Conversion Factors*. **Food and Agriculture Organization of the United Nations**, Food and Nutrition Paper 77, Rome.
+
+3. **Front-of-Pack Nutrient Profiling Standards**:
+   * **Ministry of Health (MOH) & Health Promotion Board (HPB) Singapore (2021)**. *Nutri-Grade Nutrient Profiling Standards and Grading Guidelines*.
+   * **Julia, C., & Hercberg, S. (2017)**. *Development of a new front-of-pack nutrition label: the Nutri-Score nutrient profiling system*. **Public Health Panorama**, 3(4), 712–725.
+
+4. **Machine Learning Algorithms**:
+   * **Breiman, L. (2001)**. *Random Forests*. **Machine Learning**, 45(1), 5–32. [DOI: 10.1023/A:1010933404324](https://doi.org/10.1023/A:1010933404324)
+   * **Cover, T., & Hart, P. (1967)**. *Nearest neighbor pattern classification*. **IEEE Transactions on Information Theory**, 13(1), 21–27.
+
