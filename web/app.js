@@ -1,80 +1,100 @@
 /**
- * NutriPulse Intelligence - Enterprise Frontend Controller
- * Minimalist, Scientific, Precision HealthTech UI Controller
+ * NutriSavor AI - Intelligent Culinary Nutrition & Health Analytics
+ * Handcrafted Frontend Controller & Data Visualization Layer
  */
 
 // ==========================================
-// 1. ENTERPRISE BILINGUAL DICTIONARY
+// 1. NATURAL BILINGUAL DICTIONARY (TH / EN)
 // ==========================================
 const I18N = {
   th: {
-    appSubtitle: "ระบบวิเคราะห์โภชนาการและแนะนำอาหารอัจฉริยะ",
-    tabSearch: "ค้นหาตามความคล้ายคลึง (Dish Similarity)",
-    tabTarget: "คำนวณตามเป้าหมาย (Target Optimizer)",
-    tabGrade: "AI วินิจฉัยเกรด (Nutri-Grade AI)",
-    tabPca: "แผนที่คลัสเตอร์ 2D PCA (PCA Map)",
-    tabEval: "สถิติโมเดล (Model Analytics)",
-    tabExplorer: "คลังข้อมูลโภชนาการ (Dataset Catalog)",
-    searchEyebrow: "KNN VECTOR SPACE RETRIEVAL",
-    searchHeading: "ระบบสืบค้นและจับคู่ความคล้ายคลึงของสารอาหาร",
-    searchDesc: "สืบค้นเมนูต้นทางเพื่อสร้างเวกเตอร์สารอาหาร 11 มิติ และจับคู่เมนูที่มีความใกล้เคียงเชิงโภชนาการสูงสุดด้วย Euclidean Distance",
+    appSubtitle: "ระบบค้นหาและวิเคราะห์คุณค่าโภชนาการอาหารด้วย AI อัจฉริยะ",
+    tabSearch: "ค้นหาเมนูใกล้เคียง",
+    tabTarget: "จัดเมนูตามเป้าหมาย",
+    tabGrade: "ทดสอบเกรดอาหาร",
+    tabPca: "แผนที่สารอาหาร 2D",
+    tabEval: "สถิติโมเดล AI",
+    tabExplorer: "คลังข้อมูลเมนูอาหาร",
+
+    // Tab 1: Similarity
+    searchContextTag: "ระบบจับคู่คุณค่าโภชนาการ (Nutritional Matcher)",
+    searchHeading: "ค้นหาเมนูอาหารที่ใกล้เคียงและดีต่อสุขภาพ",
+    searchDesc: "เลือกเมนูโปรดของคุณ เพื่อค้นหาเมนูที่มีสัดส่วนสารอาหารใกล้เคียง แคลอรี่เหมาะสม และมีเกรดสุขภาพ Nutri-Grade ที่ช่วยให้คุณคุมอาหารได้อร่อยไม่น่าเบื่อ",
     topKLabel: "จำนวนผลลัพธ์:",
-    btnSearch: "คำนวณความคล้ายคลึง",
-    quickSuggestions: "เมนูอ้างอิงยอดนิยม:",
-    targetDishBadge: "เมนูต้นแบบอ้างอิง",
+    btnSearch: "ค้นหาเมนูใกล้เคียง",
+    quickSuggestions: "เมนูยอดนิยมแนะนำ:",
+    btnBrowseCatalog: "ดูเมนูทั้งหมด (1,014 รายการ)",
+    targetDishBadge: "เมนูอ้างอิงต้นทาง",
     nrfScore: "ดัชนี NRF 5.3",
-    calories: "พลังงาน (Energy)",
-    protein: "โปรตีน (Protein)",
-    carbs: "คาร์บ (Carbs)",
-    fats: "ไขมัน (Lipids)",
-    radarComparisonTitle: "เรดาร์เปรียบเทียบสัดส่วนสารอาหาร (% Daily Value)",
-    recsHeading: "เมนูที่มีความใกล้เคียงเชิงสารอาหารสูงสุด",
-    targetEyebrow: "CONSTRAINED VECTOR OPTIMIZER",
-    targetHeading: "ระบบคำนวณและแนะนำเมนูตามเป้าหมายสารอาหาร",
-    targetDesc: "กำหนดกรอบเป้าหมายโภชนาการที่คุณต้องการ ระบบจะฉายเป้าหมายลงใน Vector Space เพื่อดึงเมนูอาหารที่สอดคล้องที่สุด",
-    presetGoalsLabel: "สูตรเป้าหมายสำเร็จรูป:",
-    lblCalories: "พลังงาน (Calories)",
+    calories: "พลังงาน",
+    protein: "โปรตีน",
+    carbs: "คาร์บ",
+    fats: "ไขมัน",
+    macroRatioTitle: "สัดส่วนพลังงาน (% Calorie Split)",
+    radarComparisonTitle: "สัดส่วนสารอาหารสำคัญ (% Daily Value)",
+    radarComparisonSub: "เปรียบเทียบวิตามิน แร่ธาตุ และสารอาหารหลักกับเมนูแนะนำอันดับ 1",
+    recsHeading: "เมนูที่มีคุณค่าโภชนาการใกล้เคียงที่สุด",
+    recsSub: "จัดอันดับตามความใกล้เคียงของสารอาหาร 11 มิติและแคลอรี่",
+
+    // Tab 2: Target Optimizer
+    targetContextTag: "จัดสูตรอาหารตามเป้าหมาย (Dietary Goal Solver)",
+    targetHeading: "กำหนดเป้าหมายสารอาหารเพื่อหาเมนูที่ตรงใจ",
+    targetDesc: "ปรับเลื่อนสารอาหารที่คุณต้องการในแต่ละมื้อ ระบบจะค้นหาเมนูอาหารจริงในฐานข้อมูลที่ให้สารอาหารตรงกับความต้องการของคุณมากที่สุด",
+    presetGoalsLabel: "เป้าหมายยอดนิยม:",
+    lblCalories: "พลังงานรวม (Calories)",
     lblProtein: "โปรตีน (Protein)",
     lblCarbs: "คาร์โบไฮเดรต (Carbohydrates)",
     lblFats: "ไขมันรวม (Total Fats)",
     lblSugar: "น้ำตาลอิสระ (Free Sugar)",
     lblSodium: "โซเดียม (Sodium)",
     lblFibre: "ใยอาหาร (Fibre)",
-    btnFindMatches: "ค้นหาเมนูที่สอดคล้องกับเป้าหมาย",
-    targetMatchesHeading: "ผลลัพธ์เมนูอาหารที่ผ่านการคำนวณ",
-    gradeEyebrow: "RANDOM FOREST INFERENCE ENGINE",
-    gradeHeading: "ห้องปฏิบัติการ AI วินิจฉัย Nutri-Grade",
-    gradeDesc: "จำลองสัดส่วนสารอาหารเพื่อประเมินเกรดโภชนาการ (Grade A/B/C) ด้วยโมเดล Random Forest พร้อมระบบตรวจสอบความสอดคล้องของแคลอรี่ (Atwater Check)",
+    btnFindMatches: "ค้นหาเมนูที่ตรงกับเป้าหมาย",
+    targetMatchesHeading: "เมนูที่ตรงกับเป้าหมายสารอาหารของคุณ",
+    targetMatchesSub: "เรียงตามความสอดคล้องกับสารอาหารที่คุณกำหนด",
+
+    // Tab 3: Nutri-Grade AI
+    gradeContextTag: "ห้องทดลองวินิจฉัยสุขภาพอาหาร (Nutri-Grade AI Lab)",
+    gradeHeading: "ทดสอบคำนวณ Nutri-Grade ของเมนูอาหาร",
+    gradeDesc: "จำลองสัดส่วนสารอาหารเพื่อประเมินเกรดสุขภาพ (Grade A/B/C) ด้วย Random Forest Classifier พร้อมตรวจสอบความสมดุลของพลังงานด้วย Atwater Energy Balance",
+    gradeFormTitle: "สัดส่วนสารอาหารในสูตร",
+    gradeFormDesc: "ระบุปริมาณสารอาหารจำกัดและสารอาหารหลักต่อ 1 ที่",
     gradePresetsLabel: "กรณีทดสอบมาตรฐาน:",
-    btnPredictGrade: "ประมวลผลการวินิจฉัย AI",
-    readyToPredict: "ระบบพร้อมทำการวินิจฉัย",
-    readyToPredictSub: "กดปุ่ม 'ประมวลผลการวินิจฉัย AI' เพื่อเริ่มต้นการทำนาย",
-    predictedGradeLabel: "ผลลัพธ์การจัดเกรดสุขภาพ",
-    atwaterTitle: "การตรวจสอบความสอดคล้องพลังงาน (Atwater Check)",
-    classProbabilities: "การกระจายตัวของความน่าจะเป็น (Class Probabilities)",
-    pcaEyebrow: "DIMENSIONALITY REDUCTION & SEGMENTATION",
-    pcaHeading: "แผนภาพการกระจายตัวทางโภชนาการ 2 มิติ (2D PCA)",
-    pcaDesc: "ลดมิติข้อมูลสารอาหาร 11 มิติ สู่พิกัด 2 มิติด้วย Principal Component Analysis พร้อมการจัดกลุ่ม 5 คลัสเตอร์",
-    evalEyebrow: "VALIDATION METRICS & INTERPRETABILITY",
-    evalHeading: "รายงานการวัดประสิทธิภาพโมเดล Machine Learning",
-    evalDesc: "สถิติการทดสอบความแม่นยำของ Random Forest Classifier บนชุดข้อมูลทดสอบแบบ Stratified 80/20",
+    btnPredictGrade: "ประมวลผลการจัดเกรด AI",
+    readyToPredict: "ระบบพร้อมคำนวณเกรด",
+    readyToPredictSub: "กดปุ่ม 'ประมวลผลการจัดเกรด AI' เพื่อดูผลลัพธ์และคำแนะนำ",
+    predictedGradeLabel: "เกรดสุขภาพที่ประเมินได้",
+    atwaterTitle: "การตรวจสอบสมดุลพลังงาน (Atwater Balance)",
+    classProbabilities: "ความน่าจะเป็นของการจัดเกรดแต่ละระดับ",
+    dietaryGuidanceTitle: "คำแนะนำทางโภชนาการ",
+
+    // Tab 4: 2D PCA Map
+    pcaContextTag: "การจัดกลุ่มอาหาร 5 คลัสเตอร์ (Food Clusters)",
+    pcaHeading: "แผนภาพความสัมพันธ์ของสารอาหาร 2 มิติ (2D PCA)",
+    pcaDesc: "ลดมิติข้อมูลสารอาหาร 11 มิติ สู่พิกัด 2 มิติ เพื่อแสดงให้เห็นการจัดกลุ่มตามธรรมชาติของอาหาร 1,014 ชนิด",
+
+    // Tab 5: Model Analytics
+    evalContextTag: "สถิติและการประเมินประสิทธิภาพ (Model Benchmarks)",
+    evalHeading: "รายงานความแม่นยำของโมเดล Machine Learning",
+    evalDesc: "ผลการทดสอบความแม่นยำของ Random Forest Classifier บนชุดข้อมูลทดสอบจริงแบบ Stratified 80/20",
     metricAccuracy: "ความแม่นยำรวม (Accuracy)",
     metricMacroF1: "Macro F1-Score",
     metricTestSamples: "จำนวนตัวอย่างทดสอบ",
     metricTrees: "จำนวน Decision Trees",
+    metricAccSub: "ทดสอบกับ 20% ของข้อมูลที่ไม่เคยเห็น",
+    metricF1Sub: "ค่าเฉลี่ยสมดุลทุกคลาส",
+    metricSampleSub: "รายการอาหารที่นำมาประเมิน",
+    metricTreesSub: "โครงสร้าง Random Forest",
     cmHeading: "ตาราง Confusion Matrix",
-    cmCaption: "เปรียบเทียบเกรดจริง (Actual Ground Truth) กับเกรดที่ทำนาย (Predicted)",
-    featImpHeading: "ความสำคัญของฟีเจอร์สารอาหาร (Feature Importance)",
-    featImpCaption: "น้ำหนักความสำคัญของสารอาหารที่มีผลต่อการตัดสินใจตัดเกรดของโมเดล",
-    explorerEyebrow: "ENTERPRISE DATA REGISTRY",
-    explorerHeading: "คลังข้อมูลโภชนาการอาหาร",
-    explorerDesc: "สำรวจและสืบค้นข้อมูลเมนูอาหาร 1,014 รายการ พร้อมคะแนน NRF 5.3 และเกรดสุขภาพ",
-    btnBrowseCatalog: "ดูรายชื่อเมนูทั้งหมด (1,014 รายการ)",
-    modalCatalogTitle: "คลังเมนูอาหารในระบบ (1,014 รายการ)",
-    modalCatalogSub: "คลิกเลือกเมนูที่ต้องการ เพื่อคำนวณและแนะนำสารอาหารที่ใกล้เคียงทันที",
-    btnClose: "ปิดหน้าต่าง",
-    thDishName: "ชื่อเมนู",
-    thCategory: "กลุ่มคลัสเตอร์",
+    cmCaption: "เปรียบเทียบเกรดจริงกับเกรดที่ AI ทำนาย",
+    featImpHeading: "สารอาหารที่มีผลต่อการจัดเกรดมากที่สุด",
+    featImpCaption: "น้ำหนักความสำคัญของสารอาหาร (Gini Importance)",
+
+    // Tab 6: Dataset Explorer
+    explorerContextTag: "คลังข้อมูลสูตรอาหาร (Recipe Database)",
+    explorerHeading: "ค้นหาข้อมูลโภชนาการในคลังสูตรอาหาร",
+    explorerDesc: "สำรวจรายการอาหาร 1,014 เมนู พร้อมคะแนน NRF 5.3 และเกรดสุขภาพ Nutri-Grade ครบถ้วน",
+    thDishName: "ชื่อเมนูอาหาร",
+    thCategory: "กลุ่มสารอาหาร (Cluster)",
     thGrade: "เกรด",
     thNRF: "NRF 5.3",
     thCalories: "พลังงาน (kcal)",
@@ -82,84 +102,118 @@ const I18N = {
     thCarbs: "คาร์บ (g)",
     thFats: "ไขมัน (g)",
     thSugar: "น้ำตาล (g)",
-    thSodium: "โซเดียม (mg)"
+    thSodium: "โซเดียม (mg)",
+    btnPrev: "ย้อนกลับ",
+    btnNext: "ถัดไป",
+
+    // Modal
+    modalCatalogTitle: "คลังเมนูอาหารทั้งหมด (1,014 รายการ)",
+    modalCatalogSub: "คลิกเลือกเมนูที่ต้องการ เพื่อนำไปวิเคราะห์และหาเมนูที่ใกล้เคียงทันที",
+    btnClose: "ปิดหน้าต่าง"
   },
   en: {
-    appSubtitle: "AI-Powered Nutritional Recommender & Health Analytics Platform",
+    appSubtitle: "Intelligent Culinary Nutrition & Health Analytics",
     tabSearch: "Dish Similarity",
     tabTarget: "Target Optimizer",
     tabGrade: "Nutri-Grade AI",
-    tabPca: "2D PCA Map",
+    tabPca: "2D Food Map",
     tabEval: "Model Analytics",
-    tabExplorer: "Dataset Catalog",
-    searchEyebrow: "KNN VECTOR SPACE RETRIEVAL",
-    searchHeading: "Dish-to-Dish Nutritional Similarity Engine",
-    searchDesc: "Query any reference dish to compute high-dimensional nutritional vectors across 11 standardized macro and micronutrients.",
-    topKLabel: "Retrieve:",
-    btnSearch: "Compute Similarity",
-    quickSuggestions: "Quick Reference Catalog:",
+    tabExplorer: "Recipe Catalog",
+
+    // Tab 1: Similarity
+    searchContextTag: "Culinary Vector Matching Engine",
+    searchHeading: "Find Healthier & Nutritionally Matched Meals",
+    searchDesc: "Select your favorite dish to discover delicious alternatives with comparable macronutrients, balanced calories, and verified Nutri-Grades.",
+    topKLabel: "Show:",
+    btnSearch: "Find Matches",
+    quickSuggestions: "Popular Inspirations:",
     btnBrowseCatalog: "Browse All Dishes (1,014)",
-    modalCatalogTitle: "Database Dish Catalog (1,014 Items)",
-    modalCatalogSub: "Click any dish to instantly select and compute similarity recommendations",
-    btnClose: "Close Window",
-    targetDishBadge: "Target Baseline Profile",
-    nrfScore: "NRF 5.3 Index",
+    targetDishBadge: "Reference Baseline Dish",
+    nrfScore: "NRF 5.3 Score",
     calories: "Energy",
     protein: "Protein",
     carbs: "Carbs",
-    fats: "Lipids (Fat)",
-    radarComparisonTitle: "Nutritional % Daily Value Radar",
+    fats: "Fats",
+    macroRatioTitle: "Calorie Distribution (% kcal)",
+    radarComparisonTitle: "Nutrient Profile (% Daily Value)",
+    radarComparisonSub: "Comparing micronutrient and macronutrient densities with top recommendation",
     recsHeading: "Ranked Nutritional Matches",
-    targetEyebrow: "CONSTRAINED VECTOR OPTIMIZER",
-    targetHeading: "Target-to-Dish Nutritional Solver",
-    targetDesc: "Specify target macronutrient boundaries to project your nutritional objective into the database and retrieve compliant meal formulations.",
-    presetGoalsLabel: "Clinical Formulation Presets:",
+    recsSub: "Dishes with closest nutrient vector profile and caloric alignment",
+
+    // Tab 2: Target Optimizer
+    targetContextTag: "Dietary Goal Solver",
+    targetHeading: "Target-to-Meal Nutritional Optimizer",
+    targetDesc: "Dial in your specific macronutrient boundaries. Our algorithm projects your nutritional targets to find matching real-world dishes.",
+    presetGoalsLabel: "Dietary Presets:",
     lblCalories: "Caloric Energy",
     lblProtein: "Dietary Protein",
     lblCarbs: "Carbohydrates",
-    lblFats: "Total Lipids (Fat)",
-    lblSugar: "Free / Added Sugar",
-    lblSodium: "Sodium Mineral",
+    lblFats: "Total Fats",
+    lblSugar: "Free Sugar",
+    lblSodium: "Sodium",
     lblFibre: "Dietary Fibre",
-    btnFindMatches: "Solve Optimal Vector Matches",
+    btnFindMatches: "Solve Optimal Meal Candidates",
     targetMatchesHeading: "Optimized Meal Candidates",
-    gradeEyebrow: "RANDOM FOREST INFERENCE ENGINE",
-    gradeHeading: "Nutri-Grade AI Diagnostic Lab",
-    gradeDesc: "Simulate custom nutritional formulations to determine clinical Nutri-Grades (A/B/C) with Atwater energy consistency verification.",
-    gradePresetsLabel: "Standard Benchmarks:",
-    btnPredictGrade: "Run Random Forest Inference",
-    readyToPredict: "Inference Engine Standby",
-    readyToPredictSub: "Click 'Run Random Forest Inference' to evaluate classification probabilities.",
-    predictedGradeLabel: "Predicted Health Grade",
-    atwaterTitle: "Atwater Caloric Consistency Check",
-    classProbabilities: "Posterior Class Probability Distribution",
-    pcaEyebrow: "DIMENSIONALITY REDUCTION & SEGMENTATION",
-    pcaHeading: "2D Principal Component Nutrition Map",
-    pcaDesc: "11-dimensional standardized nutrient vectors projected onto 2 principal component axes with K-Means (K=5) clustering.",
-    evalEyebrow: "VALIDATION METRICS & INTERPRETABILITY",
-    evalHeading: "Machine Learning Performance Analytics",
-    evalDesc: "Quantified validation benchmarks for the Random Forest Classifier on stratified held-out test data.",
+    targetMatchesSub: "Dishes with closest vector proximity to your nutrient specifications",
+
+    // Tab 3: Nutri-Grade AI
+    gradeContextTag: "Health Diagnostic AI",
+    gradeHeading: "Nutri-Grade Formulation Lab",
+    gradeDesc: "Simulate custom nutritional formulations to assess clinical Nutri-Grades (A/B/C) with Random Forest intelligence and Atwater energy consistency validation.",
+    gradeFormTitle: "Nutrient Composition Form",
+    gradeFormDesc: "Enter limiting nutrients and macronutrients per 100g/serving.",
+    gradePresetsLabel: "Test Benchmarks:",
+    btnPredictGrade: "Run Nutri-Grade AI Prediction",
+    readyToPredict: "Formulation Standby",
+    readyToPredictSub: "Click 'Run Nutri-Grade AI Prediction' to calculate class probabilities and dietary guidance.",
+    predictedGradeLabel: "Predicted Nutri-Grade",
+    atwaterTitle: "Atwater Energy Balance",
+    classProbabilities: "Classification Probability Breakdown",
+    dietaryGuidanceTitle: "Nutritional Interpretation",
+
+    // Tab 4: 2D PCA Map
+    pcaContextTag: "Unsupervised Clustering & 2D Projection",
+    pcaHeading: "2D Culinary Nutrition Landscape",
+    pcaDesc: "11-dimensional nutritional vectors projected onto 2 principal components. Explore how recipes group into 5 distinct dietary clusters.",
+
+    // Tab 5: Model Analytics
+    evalContextTag: "Validation Benchmarks & Interpretability",
+    evalHeading: "Machine Learning Model Performance",
+    evalDesc: "Stratified held-out test evaluation benchmarks for the Random Forest Classifier, including confusion matrix and feature contribution analysis.",
     metricAccuracy: "Classification Accuracy",
     metricMacroF1: "Macro F1-Score",
     metricTestSamples: "Held-Out Test Sample",
     metricTrees: "Ensemble Estimators",
+    metricAccSub: "Stratified 80/20 Test Split",
+    metricF1Sub: "Unweighted Mean per Class",
+    metricSampleSub: "Dishes Evaluated",
+    metricTreesSub: "Gini Impurity Decision Trees",
     cmHeading: "Confusion Matrix",
     cmCaption: "Actual Ground-Truth versus Predicted Nutri-Grade",
-    featImpHeading: "Feature Importances (Gini Decrease)",
-    featImpCaption: "Relative contribution of each nutrient feature toward classification",
-    explorerEyebrow: "ENTERPRISE DATA REGISTRY",
-    explorerHeading: "Nutritional Dataset Catalog",
-    explorerDesc: "Explore and query the 1,014 indexed dishes with computed NRF 5.3 Health Scores and Nutri-Grades.",
-    thDishName: "Dish Identifier",
+    featImpHeading: "Nutrient Feature Importance",
+    featImpCaption: "Gini impurity decrease across decision tree ensembles",
+
+    // Tab 6: Dataset Explorer
+    explorerContextTag: "Indexed Food Registry",
+    explorerHeading: "Recipe Nutrition Catalog",
+    explorerDesc: "Browse 1,014 authentic Indian culinary items with calculated NRF 5.3 Nutrient Density Scores and Nutri-Grades.",
+    thDishName: "Recipe Name",
     thCategory: "Cluster Profile",
-    thGrade: "Nutri-Grade",
+    thGrade: "Grade",
     thNRF: "NRF 5.3",
-    thCalories: "Energy (kcal)",
+    thCalories: "Calories (kcal)",
     thProtein: "Protein (g)",
     thCarbs: "Carbs (g)",
     thFats: "Fats (g)",
     thSugar: "Sugar (g)",
-    thSodium: "Sodium (mg)"
+    thSodium: "Sodium (mg)",
+    btnPrev: "Previous",
+    btnNext: "Next",
+
+    // Modal
+    modalCatalogTitle: "Recipe Catalog (1,014 Items)",
+    modalCatalogSub: "Click any recipe to select it as reference and instantly calculate matches",
+    btnClose: "Close Window"
   }
 };
 
@@ -205,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // 4. THEME & LANGUAGE CONTROLLERS
 // ==========================================
 function initTheme() {
-  const savedTheme = localStorage.getItem('nutripulse_theme') || 'dark';
+  const savedTheme = localStorage.getItem('nutrisavor_theme') || 'dark';
   setTheme(savedTheme);
 
   document.getElementById('themeToggleBtn').addEventListener('click', () => {
@@ -216,7 +270,7 @@ function initTheme() {
 
 function setTheme(theme) {
   state.theme = theme;
-  localStorage.setItem('nutripulse_theme', theme);
+  localStorage.setItem('nutrisavor_theme', theme);
   document.body.className = theme === 'dark' ? 'theme-dark' : 'theme-light';
   document.documentElement.setAttribute('data-theme', theme);
 
@@ -226,7 +280,7 @@ function setTheme(theme) {
 }
 
 function initLanguage() {
-  const savedLang = localStorage.getItem('nutripulse_lang') || 'th';
+  const savedLang = localStorage.getItem('nutrisavor_lang') || 'th';
   setLanguage(savedLang);
 
   document.querySelectorAll('.lang-option').forEach(btn => {
@@ -238,7 +292,7 @@ function initLanguage() {
 
 function setLanguage(lang) {
   state.lang = lang;
-  localStorage.setItem('nutripulse_lang', lang);
+  localStorage.setItem('nutrisavor_lang', lang);
 
   document.querySelectorAll('.lang-option').forEach(btn => {
     btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
@@ -251,6 +305,8 @@ function setLanguage(lang) {
       el.textContent = dict[key];
     }
   });
+
+  updateTargetCalorieEstimate();
 }
 
 // ==========================================
@@ -258,9 +314,10 @@ function setLanguage(lang) {
 // ==========================================
 function initNavigation() {
   document.querySelectorAll('.nav-item').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tabId = btn.getAttribute('data-tab');
-      switchTab(tabId);
+    btn.addEventListener('click', (e) => {
+      const targetBtn = e.target.closest('.nav-item') || btn;
+      const tabId = targetBtn.getAttribute('data-tab');
+      if (tabId) switchTab(tabId);
     });
   });
 }
@@ -275,6 +332,8 @@ function switchTab(tabId) {
   document.querySelectorAll('.view-panel').forEach(pane => {
     pane.classList.toggle('active', pane.id === tabId);
   });
+
+  window.scrollTo({ top: 0, behavior: 'instant' });
 
   if (tabId === 'tab-pca' && !state.pcaChart) {
     loadPcaClusterData();
@@ -317,7 +376,7 @@ async function fetchSystemStatus() {
   if (data && data.status === 'ready') {
     state.status = data;
     const statusLabel = document.getElementById('statusLabel');
-    statusLabel.textContent = `${data.dataset_count.toLocaleString()} Items · ${(data.model_accuracy * 100).toFixed(1)}% Acc`;
+    statusLabel.textContent = `${data.dataset_count.toLocaleString()} Recipes · ${(data.model_accuracy * 100).toFixed(1)}% Acc`;
   }
 }
 
@@ -347,10 +406,13 @@ function initSearchTab() {
   });
 
   document.querySelectorAll('.discovery-chip[data-dish]').forEach(chip => {
-    chip.addEventListener('click', () => {
-      const dish = chip.getAttribute('data-dish');
-      input.value = dish;
-      executeDishSearch(dish);
+    chip.addEventListener('click', (e) => {
+      const targetChip = e.target.closest('.discovery-chip') || chip;
+      const dish = targetChip.getAttribute('data-dish');
+      if (dish) {
+        input.value = dish;
+        executeDishSearch(dish);
+      }
     });
   });
 
@@ -412,7 +474,7 @@ async function initCatalogModal() {
 
 async function loadAllCatalogDishes() {
   const grid = document.getElementById('modalDishesGrid');
-  if (grid) grid.innerHTML = '<div style="grid-column: 1 / -1; padding: 2.5rem; text-align: center; color: var(--text-muted); font-size: 0.9rem;">Loading database catalog...</div>';
+  if (grid) grid.innerHTML = '<div style="grid-column: 1 / -1; padding: 2.5rem; text-align: center; color: var(--text-muted); font-size: 0.9rem;">Loading recipe database...</div>';
 
   const [dishRes, clusterRes] = await Promise.all([
     apiGet('/api/dishes?limit=1200'),
@@ -485,7 +547,7 @@ function renderModalDishes() {
     card.className = 'modal-dish-item';
 
     const gradeClass = getGradeClass(dish.grade);
-    const cleanCat = dish.category ? dish.category.replace(/^[^\w\s]+/, '').trim() : 'Balanced Meal';
+    const cleanCat = dish.category ? dish.category.replace(/^[^\w\s]+/, '').trim() : 'Balanced Recipe';
 
     card.innerHTML = `
       <div class="modal-dish-top">
@@ -496,22 +558,19 @@ function renderModalDishes() {
         <span class="clinical-grade-badge ${gradeClass}">${escapeHtml(dish.grade)}</span>
       </div>
       <div class="modal-dish-meta">
-        <span>NRF 5.3: <strong class="text-emerald font-mono">${dish.health_score}</strong></span>
+        <span>NRF 5.3: <strong class="text-emerald font-numeric">${dish.health_score}</strong></span>
         <span><strong>${dish.calories}</strong> kcal · <strong>${dish.protein}g</strong> prot</span>
       </div>
     `;
 
     card.addEventListener('click', () => {
-      // Close modal
       if (modalOverlay) modalOverlay.style.display = 'none';
       document.body.style.overflow = '';
 
-      // Set input & trigger search
       const searchInput = document.getElementById('dishSearchInput');
       if (searchInput) searchInput.value = dish.name;
       executeDishSearch(dish.name);
 
-      // Smooth scroll to results
       const resultsSection = document.getElementById('searchResultsSection');
       if (resultsSection) {
         resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -528,7 +587,7 @@ async function executeDishSearch(dishName) {
 
   const res = await apiGet(`/api/recommend/dish?name=${encodeURIComponent(dishName)}&k=${topK}`);
   if (!res.success) {
-    alert(res.error || 'Dish not found');
+    alert(res.error || 'Dish not found in database');
     return;
   }
 
@@ -536,6 +595,8 @@ async function executeDishSearch(dishName) {
   renderTargetDish(res.target_dish);
   renderRecommendations(res.recommendations, 'recommendationsCardsGrid', 'recsCountBubble');
   renderRadarChart(res.target_dish, res.recommendations);
+
+  resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function renderTargetDish(dish) {
@@ -549,6 +610,25 @@ function renderTargetDish(dish) {
   const gradeBadge = document.getElementById('targetDishGrade');
   gradeBadge.textContent = dish.grade;
   gradeBadge.className = 'clinical-grade-badge ' + getGradeClass(dish.grade);
+
+  // Update Macro Calorie Ratio Stacked Bar
+  const protCal = (dish.protein || 0) * 4;
+  const carbCal = (dish.carbs || 0) * 4;
+  const fatCal = (dish.fats || 0) * 9;
+  const totalCal = Math.max(1, protCal + carbCal + fatCal);
+
+  const pctProt = Math.round((protCal / totalCal) * 100);
+  const pctCarb = Math.round((carbCal / totalCal) * 100);
+  const pctFat = Math.max(0, 100 - pctProt - pctCarb);
+
+  const bar = document.getElementById('targetMacroBar');
+  if (bar) {
+    bar.innerHTML = `
+      <div class="macro-seg seg-protein" style="width: ${pctProt}%;" title="Protein: ${pctProt}% (${dish.protein}g)"></div>
+      <div class="macro-seg seg-carbs" style="width: ${pctCarb}%;" title="Carbs: ${pctCarb}% (${dish.carbs}g)"></div>
+      <div class="macro-seg seg-fats" style="width: ${pctFat}%;" title="Fats: ${pctFat}% (${dish.fats}g)"></div>
+    `;
+  }
 }
 
 function renderRecommendations(recs, gridId, countId) {
@@ -568,55 +648,84 @@ function renderRecommendations(recs, gridId, countId) {
     let tagBadgesHtml = '';
     if (dish.tags?.high_protein) tagBadgesHtml += `<span class="badge-tag badge-high-protein">High Protein</span>`;
     if (dish.tags?.low_carb) tagBadgesHtml += `<span class="badge-tag badge-low-carb">Low Carb</span>`;
-    if (dish.tags?.low_calorie) tagBadgesHtml += `<span class="badge-tag badge-low-calorie">Low Cal</span>`;
+    if (dish.tags?.low_calorie) tagBadgesHtml += `<span class="badge-tag badge-low-calorie">Low Calorie</span>`;
 
-    // Strip cluster emojis for enterprise look
-    const cleanCategory = dish.category ? dish.category.replace(/^[^\w\s]+/, '').trim() : 'Balanced Meal';
+    const cleanCategory = dish.category ? dish.category.replace(/^[^\w\s]+/, '').trim() : 'Balanced Recipe';
+
+    // Calorie split
+    const pCal = (dish.protein || 0) * 4;
+    const cCal = (dish.carbs || 0) * 4;
+    const fCal = (dish.fats || 0) * 9;
+    const tCal = Math.max(1, pCal + cCal + fCal);
+    const pPct = Math.round((pCal / tCal) * 100);
+    const cPct = Math.round((cCal / tCal) * 100);
+    const fPct = Math.max(0, 100 - pPct - cPct);
 
     card.innerHTML = `
-      <div>
-        <div class="card-upper-row">
-          <div>
-            <h4 class="candidate-name">${escapeHtml(dish.name)}</h4>
-            <span class="candidate-cluster">${escapeHtml(cleanCategory)}</span>
-          </div>
-          <span class="clinical-grade-badge ${gradeClass}">${escapeHtml(dish.grade)}</span>
+      <div class="card-upper-row">
+        <div>
+          <h4 class="candidate-name">${escapeHtml(dish.name)}</h4>
+          <span class="candidate-cluster">${escapeHtml(cleanCategory)}</span>
         </div>
+        <span class="clinical-grade-badge ${gradeClass}">${escapeHtml(dish.grade)}</span>
+      </div>
 
-        <div class="similarity-bar-wrap">
-          <div class="bar-meta-row">
-            <span>Vector Match Proximity</span>
-            <span class="font-mono text-emerald">${matchPct.toFixed(1)}%</span>
-          </div>
-          <div class="bar-track">
-            <div class="bar-progress" style="width: ${Math.min(100, Math.max(5, matchPct))}%;"></div>
-          </div>
+      <div class="similarity-bar-wrap">
+        <div class="bar-meta-row">
+          <span>Nutritional Match</span>
+          <span class="font-numeric text-emerald">${matchPct.toFixed(1)}%</span>
         </div>
-
-        <div class="nutrients-inline-grid">
-          <div>
-            <div class="nutri-lbl">NRF 5.3</div>
-            <div class="nutri-num text-emerald">${dish.health_score}</div>
-          </div>
-          <div>
-            <div class="nutri-lbl">Energy</div>
-            <div class="nutri-num">${dish.calories}k</div>
-          </div>
-          <div>
-            <div class="nutri-lbl">Protein</div>
-            <div class="nutri-num">${dish.protein}g</div>
-          </div>
-          <div>
-            <div class="nutri-lbl">Lipids</div>
-            <div class="nutri-num">${dish.fats}g</div>
-          </div>
+        <div class="bar-track">
+          <div class="bar-progress" style="width: ${Math.min(100, Math.max(6, matchPct))}%;"></div>
         </div>
       </div>
 
-      <div class="clinical-tags-row">
-        ${tagBadgesHtml}
+      <div class="nutrients-inline-grid">
+        <div>
+          <div class="nutri-lbl">NRF 5.3</div>
+          <div class="nutri-num text-emerald">${dish.health_score}</div>
+        </div>
+        <div>
+          <div class="nutri-lbl">Calories</div>
+          <div class="nutri-num">${dish.calories}</div>
+        </div>
+        <div>
+          <div class="nutri-lbl">Protein</div>
+          <div class="nutri-num">${dish.protein}g</div>
+        </div>
+        <div>
+          <div class="nutri-lbl">Carb/Fat</div>
+          <div class="nutri-num">${dish.carbs}g / ${dish.fats}g</div>
+        </div>
+      </div>
+
+      <div class="stacked-macro-bar" style="height: 6px;">
+        <div class="macro-seg seg-protein" style="width: ${pPct}%;" title="Protein: ${pPct}%"></div>
+        <div class="macro-seg seg-carbs" style="width: ${cPct}%;" title="Carbs: ${cPct}%"></div>
+        <div class="macro-seg seg-fats" style="width: ${fPct}%;" title="Fats: ${fPct}%"></div>
+      </div>
+
+      <div class="candidate-actions-row">
+        <div class="clinical-tags-row">
+          ${tagBadgesHtml}
+        </div>
+        <button class="btn-chain-search" title="Inspect this recipe as baseline">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <span>Explore</span>
+        </button>
       </div>
     `;
+
+    // Chain search button click
+    const exploreBtn = card.querySelector('.btn-chain-search');
+    if (exploreBtn) {
+      exploreBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const input = document.getElementById('dishSearchInput');
+        if (input) input.value = dish.name;
+        executeDishSearch(dish.name);
+      });
+    }
 
     grid.appendChild(card);
   });
@@ -645,9 +754,9 @@ function renderRadarChart(targetDish, recs) {
 
   const datasets = [
     {
-      label: `Baseline: ${targetDish.name}`,
+      label: `Reference: ${targetDish.name}`,
       data: computeDvProfile(targetDish),
-      backgroundColor: 'rgba(59, 130, 246, 0.15)',
+      backgroundColor: 'rgba(59, 130, 246, 0.18)',
       borderColor: '#3b82f6',
       borderWidth: 2,
       pointBackgroundColor: '#3b82f6',
@@ -660,10 +769,10 @@ function renderRadarChart(targetDish, recs) {
     datasets.push({
       label: `Top Match: ${topRec.name}`,
       data: computeDvProfile(topRec),
-      backgroundColor: 'rgba(16, 185, 129, 0.2)',
-      borderColor: '#10b981',
+      backgroundColor: 'rgba(22, 163, 74, 0.22)',
+      borderColor: '#16a34a',
       borderWidth: 2,
-      pointBackgroundColor: '#10b981',
+      pointBackgroundColor: '#16a34a',
       pointRadius: 3
     });
   }
@@ -682,13 +791,13 @@ function renderRadarChart(targetDish, recs) {
         r: {
           grid: { color: gridColor },
           angleLines: { color: gridColor },
-          pointLabels: { color: textColor, font: { family: 'Inter', size: 10, weight: '500' } },
+          pointLabels: { color: textColor, font: { family: 'Plus Jakarta Sans', size: 10, weight: '600' } },
           ticks: { display: false, max: 150 }
         }
       },
       plugins: {
         legend: {
-          labels: { color: textColor, font: { family: 'Plus Jakarta Sans', size: 11, weight: '600' } }
+          labels: { color: textColor, font: { family: 'Plus Jakarta Sans', size: 11, weight: '700' } }
         }
       }
     }
@@ -713,20 +822,26 @@ function initTargetTab() {
     const valSpan = document.getElementById(s.valId);
     input.addEventListener('input', () => {
       valSpan.textContent = input.value;
+      updateTargetCalorieEstimate();
     });
   });
 
   const presets = {
     'clean-bulk': { cal: 350, prot: 35, carb: 25, fat: 8, sugar: 3, sod: 350 },
     'keto': { cal: 300, prot: 25, carb: 5, fat: 22, sugar: 1, sod: 400 },
-    'weight-loss': { cal: 120, prot: 15, carb: 8, fat: 2, sugar: 1, sod: 200 },
+    'weight-loss': { cal: 130, prot: 16, carb: 8, fat: 2, sugar: 1, sod: 200 },
     'low-sodium': { cal: 180, prot: 12, carb: 25, fat: 5, sugar: 2, sod: 80 }
   };
 
   document.querySelectorAll('.clinical-preset-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const g = presets[btn.getAttribute('data-goal')];
+    btn.addEventListener('click', (e) => {
+      const targetBtn = e.target.closest('.clinical-preset-btn') || btn;
+      document.querySelectorAll('.clinical-preset-btn').forEach(b => b.classList.remove('active'));
+      targetBtn.classList.add('active');
+
+      const g = presets[targetBtn.getAttribute('data-goal')];
       if (!g) return;
+
       document.getElementById('targetCaloriesInput').value = g.cal;
       document.getElementById('valCalories').textContent = g.cal;
       document.getElementById('targetProteinInput').value = g.prot;
@@ -740,11 +855,27 @@ function initTargetTab() {
       document.getElementById('targetSodiumInput').value = g.sod;
       document.getElementById('valSodium').textContent = g.sod;
 
+      updateTargetCalorieEstimate();
       executeTargetSearch();
     });
   });
 
   document.getElementById('executeTargetSearchBtn').addEventListener('click', executeTargetSearch);
+  updateTargetCalorieEstimate();
+}
+
+function updateTargetCalorieEstimate() {
+  const prot = parseFloat(document.getElementById('targetProteinInput')?.value || 0);
+  const carb = parseFloat(document.getElementById('targetCarbsInput')?.value || 0);
+  const fat = parseFloat(document.getElementById('targetFatsInput')?.value || 0);
+  const estimated = Math.round(prot * 4 + carb * 4 + fat * 9);
+
+  const hintEl = document.getElementById('targetMacroHintText');
+  if (hintEl) {
+    hintEl.textContent = state.lang === 'th'
+      ? `การประมาณการพลังงาน: ~${estimated} kcal (คำนวณจาก Atwater Factor: โปรตีน×4 + คาร์บ×4 + ไขมัน×9)`
+      : `Macro Energy Estimate: ~${estimated} kcal based on Atwater split (Protein×4 + Carbs×4 + Fats×9).`;
+  }
 }
 
 async function executeTargetSearch() {
@@ -768,6 +899,7 @@ async function executeTargetSearch() {
 
   resultsSection.style.display = 'block';
   renderRecommendations(res.recommendations, 'targetCardsGrid', 'targetCountBubble');
+  resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 // ==========================================
@@ -820,7 +952,7 @@ async function executeGradePrediction() {
 
   const res = await apiPost('/api/grade/predict', payload);
   if (!res.success) {
-    alert(res.error || 'Inference execution failed');
+    alert(res.error || 'Prediction calculation failed');
     return;
   }
 
@@ -839,7 +971,9 @@ async function executeGradePrediction() {
   gradeTitle.textContent = res.grade;
   gradeConfidencePill.textContent = `Confidence: ${(res.confidence * 100).toFixed(1)}%`;
 
-  atwaterDesc.innerHTML = `Calculated caloric density: <strong>${res.estimated_calories} kcal</strong> (Atwater Factor: Fat×9 + Prot×4 + Carb×4).`;
+  atwaterDesc.innerHTML = state.lang === 'th'
+    ? `ความหนาแน่นพลังงานที่คำนวณได้: <strong>${res.estimated_calories} kcal</strong> (สูตร Atwater: ไขมัน×9 + โปรตีน×4 + คาร์บ×4)`
+    : `Calculated caloric density: <strong>${res.estimated_calories} kcal</strong> (Atwater: Fat×9 + Prot×4 + Carb×4).`;
 
   const probs = res.probabilities || {};
   const probA = (probs['A (Healthy)'] || 0) * 100;
@@ -855,16 +989,16 @@ async function executeGradePrediction() {
 
   if (gradeLetter === 'A') {
     adviceText.textContent = state.lang === 'th'
-      ? 'เกณฑ์สุขภาพดีเยี่ยม: ปริมาณน้ำตาล ไขมัน และโซเดียมอยู่ในระดับปลอดภัยต่อสุขภาพ เหมาะสำหรับแผนโภชนาการประจำวัน'
-      : 'Compliant with healthy dietary standards: Minimal free sugar, balanced lipid profile, and controlled sodium load.';
+      ? 'เกณฑ์สุขภาพดีเยี่ยม: ปริมาณน้ำตาล ไขมัน และโซเดียมอยู่ในระดับปลอดภัยต่อสุขภาพ เหมาะสำหรับเป็นอาหารจานหลักในทุกวัน'
+      : 'Optimal nutritional profile: Low sugar, balanced lipid profile, and controlled sodium load. Excellent for daily consumption.';
   } else if (gradeLetter === 'B') {
     adviceText.textContent = state.lang === 'th'
-      ? 'เกณฑ์สุขภาพระดับปานกลาง: สารอาหารอยู่ในระดับมาตรฐาน แนะนำให้รับประทานควบคู่กับอาหารที่มีใยอาหารสูง'
-      : 'Moderate nutritional balance: Meets general dietary allowances. Recommended to balance with micronutrient-dense items.';
+      ? 'เกณฑ์สุขภาพระดับปานกลาง: สารอาหารอยู่ในระดับมาตรฐานทั่วไป แนะนำให้ทานร่วมกับอาหารที่มีใยอาหารหรือผักเพิ่มขึ้น'
+      : 'Moderate nutritional balance: Meets general dietary requirements. Pair with high-fiber sides to improve overall balance.';
   } else {
     adviceText.textContent = state.lang === 'th'
-      ? 'ข้อจำกัดทางโภชนาการ: ปริมาณน้ำตาล (>15g), ไขมัน (>20g) หรือโซเดียม (>600mg) เกินเกณฑ์มาตรฐาน ควรจำกัดปริมาณ'
-      : 'Dietary caution: Excessive threshold in free sugar (>15g), fats (>20g), or sodium (>600mg). Advised for restricted intake.';
+      ? 'ควรจำกัดปริมาณ: มีน้ำตาล (>15g), ไขมัน (>20g) หรือโซเดียม (>600mg) เกินเกณฑ์สุขภาพ แนะนำให้แบ่งทานหรือทานเป็นครั้งคราว'
+      : 'Dietary caution: Elevated free sugar (>15g), fats (>20g), or sodium (>600mg). Recommended for occasional or portion-controlled intake.';
   }
 }
 
@@ -905,8 +1039,8 @@ function renderPcaScatterChart(data) {
       data: pts,
       backgroundColor: c.color,
       borderColor: 'transparent',
-      pointRadius: 3.5,
-      pointHoverRadius: 6
+      pointRadius: 4,
+      pointHoverRadius: 7
     };
   });
 
@@ -923,16 +1057,16 @@ function renderPcaScatterChart(data) {
       scales: {
         x: {
           grid: { color: gridColor },
-          title: { display: true, text: 'Principal Component 1 (Energy & Protein Density)', color: textColor, font: { family: 'Inter', size: 11 } }
+          title: { display: true, text: 'Principal Component 1 (Energy & Protein Density)', color: textColor, font: { family: 'Plus Jakarta Sans', size: 11, weight: '600' } }
         },
         y: {
           grid: { color: gridColor },
-          title: { display: true, text: 'Principal Component 2 (Micronutrients & Lipid/Sugar Ratio)', color: textColor, font: { family: 'Inter', size: 11 } }
+          title: { display: true, text: 'Principal Component 2 (Micronutrients & Lipid/Sugar Ratio)', color: textColor, font: { family: 'Plus Jakarta Sans', size: 11, weight: '600' } }
         }
       },
       plugins: {
         legend: {
-          labels: { color: textColor, font: { family: 'Plus Jakarta Sans', size: 11, weight: '600' } }
+          labels: { color: textColor, font: { family: 'Plus Jakarta Sans', size: 11, weight: '700' } }
         },
         tooltip: {
           callbacks: {
@@ -960,7 +1094,7 @@ function renderClusterCards(clusters) {
     // Legend Pill
     const pill = document.createElement('span');
     pill.className = 'cluster-badge-tag';
-    pill.style.background = `${c.color}18`;
+    pill.style.background = `${c.color}1a`;
     pill.style.borderColor = c.color;
     pill.style.color = c.color;
     pill.textContent = `${cleanName} (${c.count})`;
@@ -973,7 +1107,7 @@ function renderClusterCards(clusters) {
     card.innerHTML = `
       <div class="cluster-card-head">
         <span class="cluster-card-name" style="color: ${c.color};">${escapeHtml(cleanName)}</span>
-        <span class="cluster-card-count">${c.count} items</span>
+        <span class="cluster-card-count">${c.count} recipes</span>
       </div>
       <div class="nutrients-inline-grid">
         <div><div class="nutri-lbl">Avg Cal</div><div class="nutri-num">${c.avg_nutrients.calories}</div></div>
@@ -1051,8 +1185,8 @@ function renderFeatureImportanceChart(importances) {
       labels,
       datasets: [{
         data: values,
-        backgroundColor: '#10b981',
-        borderRadius: 4
+        backgroundColor: '#16a34a',
+        borderRadius: 5
       }]
     },
     options: {
@@ -1060,8 +1194,8 @@ function renderFeatureImportanceChart(importances) {
       responsive: true,
       maintainAspectRatio: false,
       scales: {
-        x: { grid: { color: gridColor }, ticks: { color: textColor, font: { family: 'Inter', size: 10 } } },
-        y: { grid: { display: false }, ticks: { color: textColor, font: { family: 'Inter', size: 11, weight: '500' } } }
+        x: { grid: { color: gridColor }, ticks: { color: textColor, font: { family: 'Plus Jakarta Sans', size: 10 } } },
+        y: { grid: { display: false }, ticks: { color: textColor, font: { family: 'Plus Jakarta Sans', size: 11, weight: '600' } } }
       },
       plugins: {
         legend: { display: false }
@@ -1149,21 +1283,32 @@ function renderExplorerTable(dishes, total, offset, limit) {
   dishes.forEach((d, idx) => {
     const tr = document.createElement('tr');
     const gradeClass = getGradeClass(d.grade);
-    const cleanCat = d.category ? d.category.replace(/^[^\w\s]+/, '').trim() : 'Balanced Meal';
+    const cleanCat = d.category ? d.category.replace(/^[^\w\s]+/, '').trim() : 'Balanced Recipe';
 
     tr.innerHTML = `
-      <td class="font-mono text-dim">${offset + idx + 1}</td>
+      <td class="font-numeric text-dim">${offset + idx + 1}</td>
       <td><strong>${escapeHtml(d.name)}</strong></td>
       <td>${escapeHtml(cleanCat)}</td>
       <td><span class="clinical-grade-badge ${gradeClass}">${escapeHtml(d.grade)}</span></td>
-      <td class="text-emerald font-mono">${d.health_score}</td>
-      <td class="font-mono">${d.calories}</td>
-      <td class="font-mono">${d.protein}</td>
-      <td class="font-mono">${d.carbs}</td>
-      <td class="font-mono">${d.fats}</td>
-      <td class="font-mono">${d.sugar}</td>
-      <td class="font-mono">${d.sodium}</td>
+      <td class="text-emerald font-numeric">${d.health_score}</td>
+      <td class="font-numeric">${d.calories}</td>
+      <td class="font-numeric">${d.protein}</td>
+      <td class="font-numeric">${d.carbs}</td>
+      <td class="font-numeric">${d.fats}</td>
+      <td class="font-numeric">${d.sugar}</td>
+      <td class="font-numeric">${d.sodium}</td>
     `;
+
+    // Row click selects recipe in similarity tab
+    tr.style.cursor = 'pointer';
+    tr.title = 'Click to compute similarity';
+    tr.addEventListener('click', () => {
+      switchTab('tab-search');
+      const searchInput = document.getElementById('dishSearchInput');
+      if (searchInput) searchInput.value = d.name;
+      executeDishSearch(d.name);
+    });
+
     tbody.appendChild(tr);
   });
 

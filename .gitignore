@@ -86,3 +86,7 @@ Desktop.ini
 *.sqlite
 *.sqlite3
 *.db
+
+.agents
+.agents/*
+.agents/**

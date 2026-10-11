@@ -3,40 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NutriPulse AI · Enterprise Nutritional Intelligence Platform</title>
-  <meta name="description" content="Production-grade AI Nutritional Recommender System with Hybrid Vector Space Search, NRF 5.3 Density Scoring, 2D PCA Clustering, and Random Forest Nutri-Grade AI.">
+  <title>NutriSavor AI · Intelligent Culinary Nutrition & Meal Matchmaker</title>
+  <meta name="description" content="AI-Powered Culinary Nutrition Recommender & Health Analytics. Discover nutritionally matched meals, optimize macro targets, and predict Nutri-Grades with machine learning.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- Chart.js for precision visual analytics -->
+  <!-- Chart.js for precision interactive analytics -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body class="theme-dark">
   <div class="app-layout">
 
-    <!-- ENTERPRISE TOP NAVIGATION BAR -->
+    <!-- TOP NAVIGATION BAR -->
     <header class="top-nav-bar">
       <div class="nav-container">
         
-        <!-- Left: Brand Identity -->
+        <!-- Brand Identity -->
         <div class="brand-wrapper">
-          <div class="brand-mark">
-            <svg class="brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+          <div class="brand-logo-badge">
+            <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12a10 10 0 0 1 10-10z"/>
+              <path d="M12 6v6l4 2"/>
+              <path d="M7 10c1-2 3-3 5-3s4 1 5 3"/>
             </svg>
+            <span class="brand-pulse-dot"></span>
           </div>
           <div class="brand-meta">
-            <div class="brand-name">
-              <span>NutriPulse</span>
-              <span class="brand-tag">INTELLIGENCE</span>
+            <div class="brand-title-row">
+              <span class="brand-name">NutriSavor</span>
+              <span class="brand-badge">AI CUISINE</span>
             </div>
-            <span class="brand-desc" data-i18n="appSubtitle">AI-Powered Nutritional Recommender & Health Analytics</span>
+            <span class="brand-desc" data-i18n="appSubtitle">Intelligent Culinary Nutrition & Health Analytics</span>
           </div>
         </div>
 
-        <!-- Center: Primary Feature Navigation -->
-        <nav class="main-tabs-nav" role="tablist">
+        <!-- Navigation Tabs -->
+        <nav class="main-tabs-nav" role="tablist" aria-label="Feature Tabs">
           <button class="nav-item active" data-tab="tab-search" id="tabBtnSearch">
             <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
             <span data-i18n="tabSearch">Dish Similarity</span>
@@ -46,12 +49,12 @@
             <span data-i18n="tabTarget">Target Optimizer</span>
           </button>
           <button class="nav-item" data-tab="tab-grade" id="tabBtnGrade">
-            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v7.31M14 2v7.31M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0"/></svg>
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
             <span data-i18n="tabGrade">Nutri-Grade AI</span>
           </button>
           <button class="nav-item" data-tab="tab-pca" id="tabBtnPca">
             <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><circle cx="9" cy="9" r="2"/><circle cx="17" cy="13" r="2"/><circle cx="13" cy="17" r="2"/></svg>
-            <span data-i18n="tabPca">2D PCA Map</span>
+            <span data-i18n="tabPca">2D Food Map</span>
           </button>
           <button class="nav-item" data-tab="tab-eval" id="tabBtnEval">
             <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
@@ -59,26 +62,23 @@
           </button>
           <button class="nav-item" data-tab="tab-explorer" id="tabBtnExplorer">
             <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
-            <span data-i18n="tabExplorer">Dataset Catalog</span>
+            <span data-i18n="tabExplorer">Recipe Catalog</span>
           </button>
         </nav>
 
-        <!-- Right: System Controls -->
+        <!-- System Controls & Toggles -->
         <div class="nav-controls">
-          <!-- Engine Status Pill -->
-          <div class="system-health-pill" id="systemStatusPill">
+          <div class="system-health-pill" id="systemStatusPill" title="Server engine & dataset readiness">
             <span class="pulse-indicator"></span>
-            <span class="health-text" id="statusLabel">Initializing...</span>
+            <span class="health-text" id="statusLabel">Loading model...</span>
           </div>
 
-          <!-- Language Selector -->
-          <div class="segmented-lang-switch">
+          <div class="segmented-lang-switch" role="group" aria-label="Language selection">
             <button class="lang-option active" data-lang="th">TH</button>
             <button class="lang-option" data-lang="en">EN</button>
           </div>
 
-          <!-- Theme Toggle Button -->
-          <button class="icon-toggle-btn" id="themeToggleBtn" title="Toggle Theme" aria-label="Toggle Dark/Light Mode">
+          <button class="icon-toggle-btn" id="themeToggleBtn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
             <svg class="theme-svg theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
             <svg class="theme-svg theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
           </button>
@@ -87,63 +87,68 @@
       </div>
     </header>
 
-    <!-- MAIN CONTENT CONTAINER -->
+    <!-- MAIN BODY -->
     <main class="main-body-container">
 
       <!-- ================================================================= -->
-      <!-- TAB 1: DISH-TO-DISH VECTOR SIMILARITY -->
+      <!-- TAB 1: DISH-TO-DISH NUTRITIONAL SIMILARITY -->
       <!-- ================================================================= -->
       <section class="view-panel active" id="tab-search">
-        <div class="panel-header-block">
-          <div>
-            <span class="eyebrow-badge" data-i18n="searchEyebrow">KNN VECTOR SPACE RETRIEVAL</span>
-            <h2 class="view-title" data-i18n="searchHeading">Dish-to-Dish Nutritional Similarity Engine</h2>
-            <p class="view-subtitle" data-i18n="searchDesc">Query any reference dish to compute high-dimensional nutritional vectors across 11 standardized macro and micronutrients.</p>
-          </div>
-        </div>
-
-        <!-- Command Search Bar -->
-        <div class="search-command-card">
-          <div class="command-input-row">
-            <div class="input-prefix-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        
+        <!-- Hero Search Section -->
+        <div class="hero-culinary-card">
+          <div class="hero-text-block">
+            <div class="hero-context-tag">
+              <span class="context-tag-dot"></span>
+              <span data-i18n="searchContextTag">Culinary Vector Matching Engine</span>
             </div>
-            <input type="text" id="dishSearchInput" class="command-search-input" placeholder="Search catalog by dish name (e.g. Butter Chicken, Palak Paneer, Tandoori Chicken)..." autocomplete="off">
-            <button class="input-clear-btn" id="clearSearchBtn" title="Clear input">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
-            </button>
-            <div class="command-select-group">
-              <span class="select-label" data-i18n="topKLabel">Retrieve:</span>
-              <select id="searchTopKSelect" class="clean-select">
-                <option value="3">Top 3</option>
-                <option value="5" selected>Top 5</option>
-                <option value="8">Top 8</option>
-                <option value="10">Top 10</option>
-              </select>
-              <button class="btn-solid-primary" id="executeSearchBtn">
-                <span data-i18n="btnSearch">Compute Similarity</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </button>
-            </div>
+            <h1 class="hero-headline" data-i18n="searchHeading">Find Healthier & Nutritionally Matched Meals</h1>
+            <p class="hero-subheading" data-i18n="searchDesc">Select your favorite dish to discover delicious alternatives with comparable macronutrients, balanced calories, and verified Nutri-Grades.</p>
           </div>
 
-          <!-- Quick Discovery Chips & Browse All Modal Trigger -->
-          <div class="preset-discovery-row">
-            <div class="discovery-chips-header">
-              <span class="discovery-label" data-i18n="quickSuggestions">Quick Reference:</span>
-              <button class="btn-browse-catalog" id="openCatalogModalBtn" title="View all 1,014 dishes in database">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
-                <span data-i18n="btnBrowseCatalog">Browse All Dishes (1,014)</span>
+          <!-- Interactive Search Input Bar -->
+          <div class="search-command-card">
+            <div class="command-input-row">
+              <div class="input-prefix-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              </div>
+              <input type="text" id="dishSearchInput" class="command-search-input" placeholder="Type a dish name (e.g. Butter Chicken, Palak Paneer, Dal Makhani, Biryani)..." autocomplete="off">
+              <button class="input-clear-btn" id="clearSearchBtn" title="Clear search input">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
               </button>
+              <div class="command-select-group">
+                <span class="select-label" data-i18n="topKLabel">Show:</span>
+                <select id="searchTopKSelect" class="clean-select">
+                  <option value="3">Top 3</option>
+                  <option value="5" selected>Top 5</option>
+                  <option value="8">Top 8</option>
+                  <option value="12">Top 12</option>
+                </select>
+                <button class="btn-solid-primary" id="executeSearchBtn">
+                  <span data-i18n="btnSearch">Find Matches</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
             </div>
-            <div class="discovery-chips-container">
-              <button class="discovery-chip" data-dish="Butter Chicken">Butter Chicken</button>
-              <button class="discovery-chip" data-dish="Palak Paneer">Palak Paneer</button>
-              <button class="discovery-chip" data-dish="Tandoori Chicken">Tandoori Chicken</button>
-              <button class="discovery-chip" data-dish="Dal Makhani">Dal Makhani</button>
-              <button class="discovery-chip" data-dish="Gulab Jamun">Gulab Jamun</button>
-              <button class="discovery-chip" data-dish="Fish Curry">Fish Curry</button>
-              <button class="discovery-chip" data-dish="Masala Dosa">Masala Dosa</button>
+
+            <!-- Quick Suggestions & Catalog Trigger -->
+            <div class="preset-discovery-row">
+              <div class="discovery-chips-header">
+                <span class="discovery-label" data-i18n="quickSuggestions">Popular Inspirations:</span>
+                <button class="btn-browse-catalog" id="openCatalogModalBtn" title="View all 1,014 recipes in catalog">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+                  <span data-i18n="btnBrowseCatalog">Browse All Dishes (1,014)</span>
+                </button>
+              </div>
+              <div class="discovery-chips-container">
+                <button class="discovery-chip" data-dish="Butter Chicken">🍗 Butter Chicken</button>
+                <button class="discovery-chip" data-dish="Palak Paneer">🥬 Palak Paneer</button>
+                <button class="discovery-chip" data-dish="Tandoori Chicken">🔥 Tandoori Chicken</button>
+                <button class="discovery-chip" data-dish="Dal Makhani">🍲 Dal Makhani</button>
+                <button class="discovery-chip" data-dish="Fish Curry">🐟 Fish Curry</button>
+                <button class="discovery-chip" data-dish="Masala Dosa">🥞 Masala Dosa</button>
+                <button class="discovery-chip" data-dish="Gulab Jamun">🍯 Gulab Jamun</button>
+              </div>
             </div>
           </div>
         </div>
@@ -151,45 +156,64 @@
         <!-- SEARCH RESULTS BENTO GRID -->
         <div id="searchResultsSection" class="similarity-bento-layout" style="display: none;">
           
-          <!-- Target Dish Intelligence Card -->
+          <!-- Baseline Dish Highlight Card -->
           <div class="bento-card target-intel-card">
             <div class="intel-card-header">
               <div>
-                <span class="meta-tag" data-i18n="targetDishBadge">Target Baseline Profile</span>
-                <h3 class="intel-dish-title" id="targetDishTitle">Butter Chicken</h3>
+                <span class="meta-tag" data-i18n="targetDishBadge">Reference Baseline Dish</span>
+                <h2 class="intel-dish-title" id="targetDishTitle">Butter Chicken</h2>
               </div>
               <span class="clinical-grade-badge" id="targetDishGrade">Grade B</span>
             </div>
 
-            <!-- Key Metric Gauges -->
+            <!-- Macro Nutritional Gauges -->
             <div class="clinical-metrics-grid">
               <div class="metric-cell">
-                <span class="cell-label" data-i18n="nrfScore">NRF 5.3 Index</span>
-                <span class="cell-value text-emerald font-mono" id="targetHealthScore">52.85</span>
+                <span class="cell-label" data-i18n="nrfScore">NRF 5.3 Score</span>
+                <span class="cell-value text-emerald font-numeric" id="targetHealthScore">52.85</span>
               </div>
               <div class="metric-cell">
                 <span class="cell-label" data-i18n="calories">Energy</span>
-                <span class="cell-value font-mono" id="targetCalories">325 kcal</span>
+                <span class="cell-value font-numeric" id="targetCalories">325 kcal</span>
               </div>
               <div class="metric-cell">
                 <span class="cell-label" data-i18n="protein">Protein</span>
-                <span class="cell-value font-mono" id="targetProtein">28.0 g</span>
+                <span class="cell-value font-numeric" id="targetProtein">28.0 g</span>
               </div>
               <div class="metric-cell">
-                <span class="cell-label" data-i18n="carbs">Carbohydrates</span>
-                <span class="cell-value font-mono" id="targetCarbs">8.5 g</span>
+                <span class="cell-label" data-i18n="carbs">Carbs</span>
+                <span class="cell-value font-numeric" id="targetCarbs">8.5 g</span>
               </div>
               <div class="metric-cell">
-                <span class="cell-label" data-i18n="fats">Lipids (Fat)</span>
-                <span class="cell-value font-mono" id="targetFats">20.0 g</span>
+                <span class="cell-label" data-i18n="fats">Fats</span>
+                <span class="cell-value font-numeric" id="targetFats">20.0 g</span>
               </div>
             </div>
 
-            <!-- Radar Chart Comparison -->
+            <!-- Caloric Energy Ratio Split Bar -->
+            <div class="macro-breakdown-bar-card">
+              <div class="bar-legend-row">
+                <span class="legend-title" data-i18n="macroRatioTitle">Calorie Distribution (% kcal)</span>
+                <div class="macro-chips-legend">
+                  <span class="chip-dot dot-protein"></span><span>Prot</span>
+                  <span class="chip-dot dot-carbs"></span><span>Carb</span>
+                  <span class="chip-dot dot-fats"></span><span>Fat</span>
+                </div>
+              </div>
+              <div class="stacked-macro-bar" id="targetMacroBar">
+                <div class="macro-seg seg-protein" style="width: 35%;" title="Protein"></div>
+                <div class="macro-seg seg-carbs" style="width: 15%;" title="Carbs"></div>
+                <div class="macro-seg seg-fats" style="width: 50%;" title="Fats"></div>
+              </div>
+            </div>
+
+            <!-- Radar Chart Comparison Module -->
             <div class="radar-chart-module">
               <div class="module-header">
-                <h4 class="module-title" data-i18n="radarComparisonTitle">Nutritional % Daily Value Radar</h4>
-                <span class="module-sub">Multi-axis nutrient density comparison</span>
+                <div>
+                  <h3 class="module-title" data-i18n="radarComparisonTitle">Nutrient Profile (% Daily Value)</h3>
+                  <span class="module-sub" data-i18n="radarComparisonSub">Comparing micronutrient and macronutrient densities</span>
+                </div>
               </div>
               <div class="radar-canvas-container">
                 <canvas id="dishRadarChart"></canvas>
@@ -197,14 +221,16 @@
             </div>
           </div>
 
-          <!-- Recommendations Column -->
+          <!-- Recommendations Stream Column -->
           <div class="recs-stream-column">
             <div class="stream-header">
-              <h3 class="stream-title">
-                <span data-i18n="recsHeading">Ranked Nutritional Matches</span>
-                <span class="stream-badge" id="recsCountBubble">0</span>
-              </h3>
-              <span class="stream-sub">Ordered by Euclidean proximity on standardized feature space</span>
+              <div>
+                <h2 class="stream-title">
+                  <span data-i18n="recsHeading">Ranked Nutritional Matches</span>
+                  <span class="stream-badge" id="recsCountBubble">0</span>
+                </h2>
+                <span class="stream-sub" data-i18n="recsSub">Dishes with closest nutrient vector profile and caloric alignment</span>
+              </div>
             </div>
 
             <div class="candidate-cards-stack" id="recommendationsCardsGrid">
@@ -219,109 +245,126 @@
       <!-- TAB 2: TARGET NUTRIENT OPTIMIZER -->
       <!-- ================================================================= -->
       <section class="view-panel" id="tab-target">
-        <div class="panel-header-block">
-          <div>
-            <span class="eyebrow-badge" data-i18n="targetEyebrow">CONSTRAINED VECTOR OPTIMIZER</span>
-            <h2 class="view-title" data-i18n="targetHeading">Target-to-Dish Nutritional Solver</h2>
-            <p class="view-subtitle" data-i18n="targetDesc">Specify target macronutrient boundaries to project your nutritional objective into the database and retrieve compliant meal formulations.</p>
-          </div>
-        </div>
-
-        <div class="bento-card target-form-card">
-          <!-- Preset Objective Chips -->
-          <div class="objective-presets-bar">
-            <span class="presets-intro" data-i18n="presetGoalsLabel">Clinical Formulation Presets:</span>
-            <div class="preset-buttons-group">
-              <button class="clinical-preset-btn" data-goal="clean-bulk">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
-                <span>Hypertrophy / Clean Bulk</span>
-              </button>
-              <button class="clinical-preset-btn" data-goal="keto">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8Z"/><path d="M12 6v6l4 2"/></svg>
-                <span>Ketogenic Low-Carb</span>
-              </button>
-              <button class="clinical-preset-btn" data-goal="weight-loss">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m19 12-7-7-7 7M12 19V5"/></svg>
-                <span>Caloric Deficit / Cut</span>
-              </button>
-              <button class="clinical-preset-btn" data-goal="low-sodium">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-                <span>Cardiovascular / Low-Sodium</span>
-              </button>
+        
+        <div class="hero-culinary-card">
+          <div class="hero-text-block">
+            <div class="hero-context-tag">
+              <span class="context-tag-dot"></span>
+              <span data-i18n="targetContextTag">Dietary Goal Solver</span>
             </div>
+            <h1 class="hero-headline" data-i18n="targetHeading">Target-to-Meal Nutritional Optimizer</h1>
+            <p class="hero-subheading" data-i18n="targetDesc">Dial in your specific macronutrient boundaries. Our algorithm projects your nutritional targets to find matching real-world dishes.</p>
           </div>
 
-          <!-- Parameter Sliders Grid -->
-          <div class="parameter-sliders-grid">
-            
-            <div class="slider-module">
-              <div class="slider-top-meta">
-                <label for="targetCaloriesInput" data-i18n="lblCalories">Caloric Energy</label>
-                <div class="metric-readout"><span id="valCalories">200</span> <small>kcal</small></div>
+          <div class="bento-card target-form-card">
+            <!-- Preset Objective Buttons -->
+            <div class="objective-presets-bar">
+              <span class="presets-intro" data-i18n="presetGoalsLabel">Dietary Presets:</span>
+              <div class="preset-buttons-group">
+                <button class="clinical-preset-btn" data-goal="clean-bulk">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                  <span>High Protein / Clean Bulk</span>
+                </button>
+                <button class="clinical-preset-btn" data-goal="keto">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8Z"/><path d="M12 6v6l4 2"/></svg>
+                  <span>Low Carb / Keto</span>
+                </button>
+                <button class="clinical-preset-btn" data-goal="weight-loss">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m19 12-7-7-7 7M12 19V5"/></svg>
+                  <span>Caloric Deficit / Cut</span>
+                </button>
+                <button class="clinical-preset-btn" data-goal="low-sodium">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                  <span>Cardio / Low Sodium</span>
+                </button>
               </div>
-              <input type="range" id="targetCaloriesInput" min="20" max="800" step="10" value="200">
             </div>
 
-            <div class="slider-module">
-              <div class="slider-top-meta">
-                <label for="targetProteinInput" data-i18n="lblProtein">Dietary Protein</label>
-                <div class="metric-readout"><span id="valProtein">25</span> <small>g</small></div>
+            <!-- Sliders Grid -->
+            <div class="parameter-sliders-grid">
+              
+              <div class="slider-module">
+                <div class="slider-top-meta">
+                  <label for="targetCaloriesInput" data-i18n="lblCalories">Caloric Energy</label>
+                  <div class="metric-readout"><span id="valCalories">200</span> <small>kcal</small></div>
+                </div>
+                <input type="range" id="targetCaloriesInput" min="30" max="800" step="10" value="200">
+                <div class="slider-ticks"><span>30 kcal</span><span>400 kcal</span><span>800 kcal</span></div>
               </div>
-              <input type="range" id="targetProteinInput" min="0" max="60" step="1" value="25">
+
+              <div class="slider-module">
+                <div class="slider-top-meta">
+                  <label for="targetProteinInput" data-i18n="lblProtein">Dietary Protein</label>
+                  <div class="metric-readout"><span id="valProtein">25</span> <small>g</small></div>
+                </div>
+                <input type="range" id="targetProteinInput" min="0" max="60" step="1" value="25">
+                <div class="slider-ticks"><span>0g</span><span>30g</span><span>60g</span></div>
+              </div>
+
+              <div class="slider-module">
+                <div class="slider-top-meta">
+                  <label for="targetCarbsInput" data-i18n="lblCarbs">Carbohydrates</label>
+                  <div class="metric-readout"><span id="valCarbs">15</span> <small>g</small></div>
+                </div>
+                <input type="range" id="targetCarbsInput" min="0" max="100" step="1" value="15">
+                <div class="slider-ticks"><span>0g</span><span>50g</span><span>100g</span></div>
+              </div>
+
+              <div class="slider-module">
+                <div class="slider-top-meta">
+                  <label for="targetFatsInput" data-i18n="lblFats">Total Fats</label>
+                  <div class="metric-readout"><span id="valFats">6</span> <small>g</small></div>
+                </div>
+                <input type="range" id="targetFatsInput" min="0" max="50" step="1" value="6">
+                <div class="slider-ticks"><span>0g</span><span>25g</span><span>50g</span></div>
+              </div>
+
+              <div class="slider-module">
+                <div class="slider-top-meta">
+                  <label for="targetSugarInput" data-i18n="lblSugar">Free Sugar</label>
+                  <div class="metric-readout"><span id="valSugar">2</span> <small>g</small></div>
+                </div>
+                <input type="range" id="targetSugarInput" min="0" max="40" step="1" value="2">
+                <div class="slider-ticks"><span>0g</span><span>20g</span><span>40g</span></div>
+              </div>
+
+              <div class="slider-module">
+                <div class="slider-top-meta">
+                  <label for="targetSodiumInput" data-i18n="lblSodium">Sodium</label>
+                  <div class="metric-readout"><span id="valSodium">300</span> <small>mg</small></div>
+                </div>
+                <input type="range" id="targetSodiumInput" min="10" max="1500" step="20" value="300">
+                <div class="slider-ticks"><span>10mg</span><span>750mg</span><span>1500mg</span></div>
+              </div>
+
             </div>
 
-            <div class="slider-module">
-              <div class="slider-top-meta">
-                <label for="targetCarbsInput" data-i18n="lblCarbs">Carbohydrates</label>
-                <div class="metric-readout"><span id="valCarbs">15</span> <small>g</small></div>
-              </div>
-              <input type="range" id="targetCarbsInput" min="0" max="100" step="1" value="15">
+            <!-- Dynamic Calorie Balance Notice -->
+            <div class="target-macro-hint" id="targetMacroHint">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+              <span id="targetMacroHintText">Macro Energy Estimate: ~214 kcal from specified protein, carbs, and fats.</span>
             </div>
 
-            <div class="slider-module">
-              <div class="slider-top-meta">
-                <label for="targetFatsInput" data-i18n="lblFats">Total Lipids (Fat)</label>
-                <div class="metric-readout"><span id="valFats">6</span> <small>g</small></div>
-              </div>
-              <input type="range" id="targetFatsInput" min="0" max="50" step="1" value="6">
+            <div class="action-footer-row">
+              <button class="btn-solid-primary btn-cta" id="executeTargetSearchBtn">
+                <span data-i18n="btnFindMatches">Solve Optimal Meal Candidates</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
             </div>
-
-            <div class="slider-module">
-              <div class="slider-top-meta">
-                <label for="targetSugarInput" data-i18n="lblSugar">Free / Added Sugar</label>
-                <div class="metric-readout"><span id="valSugar">2</span> <small>g</small></div>
-              </div>
-              <input type="range" id="targetSugarInput" min="0" max="40" step="1" value="2">
-            </div>
-
-            <div class="slider-module">
-              <div class="slider-top-meta">
-                <label for="targetSodiumInput" data-i18n="lblSodium">Sodium Mineral</label>
-                <div class="metric-readout"><span id="valSodium">300</span> <small>mg</small></div>
-              </div>
-              <input type="range" id="targetSodiumInput" min="10" max="1500" step="20" value="300">
-            </div>
-
-          </div>
-
-          <div class="action-footer-row">
-            <button class="btn-solid-primary btn-cta" id="executeTargetSearchBtn">
-              <span data-i18n="btnFindMatches">Solve Optimal Vector Matches</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
           </div>
         </div>
 
         <!-- TARGET RESULTS SECTION -->
         <div id="targetResultsSection" class="results-container-block" style="display: none;">
           <div class="section-divider-header">
-            <h3 class="stream-title">
+            <h2 class="stream-title">
               <span data-i18n="targetMatchesHeading">Optimized Meal Candidates</span>
               <span class="stream-badge" id="targetCountBubble">0</span>
-            </h3>
+            </h2>
+            <span class="stream-sub" data-i18n="targetMatchesSub">Dishes with closest vector proximity to your nutrient specifications</span>
           </div>
           <div class="candidate-cards-stack" id="targetCardsGrid">
-            <!-- Dynamically populated -->
+            <!-- Dynamically populated candidate cards -->
           </div>
         </div>
       </section>
@@ -330,11 +373,15 @@
       <!-- TAB 3: NUTRI-GRADE AI CLASSIFIER -->
       <!-- ================================================================= -->
       <section class="view-panel" id="tab-grade">
-        <div class="panel-header-block">
-          <div>
-            <span class="eyebrow-badge" data-i18n="gradeEyebrow">RANDOM FOREST INFERENCE ENGINE</span>
-            <h2 class="view-title" data-i18n="gradeHeading">Nutri-Grade AI Diagnostic Lab</h2>
-            <p class="view-subtitle" data-i18n="gradeDesc">Simulate custom nutritional formulations to determine clinical Nutri-Grades (A/B/C) with Atwater energy consistency verification.</p>
+        
+        <div class="hero-culinary-card">
+          <div class="hero-text-block">
+            <div class="hero-context-tag">
+              <span class="context-tag-dot"></span>
+              <span data-i18n="gradeContextTag">Health Diagnostic AI</span>
+            </div>
+            <h1 class="hero-headline" data-i18n="gradeHeading">Nutri-Grade Formulation Lab</h1>
+            <p class="hero-subheading" data-i18n="gradeDesc">Simulate custom nutritional formulations to assess clinical Nutri-Grades (A/B/C) with Random Forest intelligence and Atwater energy consistency validation.</p>
           </div>
         </div>
 
@@ -343,16 +390,16 @@
           <!-- Formulation Inputs Panel -->
           <div class="bento-card diagnostic-inputs-panel">
             <div class="panel-inner-heading">
-              <h3 class="card-subtitle">Formulation Composition</h3>
-              <p class="card-caption">Input primary limiting and macro nutrients to simulate inference.</p>
+              <h2 class="card-subtitle" data-i18n="gradeFormTitle">Nutrient Composition Form</h2>
+              <p class="card-caption" data-i18n="gradeFormDesc">Enter limiting nutrients and macronutrients per 100g/serving.</p>
             </div>
 
             <div class="matrix-inputs-grid">
               
               <div class="matrix-field">
-                <label>
+                <label for="gradeSugarInput">
                   <span data-i18n="lblSugar">Free Sugar</span>
-                  <span class="req-star">*</span>
+                  <span class="req-star" title="Crucial Nutri-Grade limiting factor">*</span>
                 </label>
                 <div class="field-input-box">
                   <input type="number" id="gradeSugarInput" class="matrix-number-input" value="3.0" step="0.5" min="0">
@@ -361,9 +408,9 @@
               </div>
 
               <div class="matrix-field">
-                <label>
+                <label for="gradeFatInput">
                   <span data-i18n="lblFats">Total Fats</span>
-                  <span class="req-star">*</span>
+                  <span class="req-star" title="Crucial Nutri-Grade limiting factor">*</span>
                 </label>
                 <div class="field-input-box">
                   <input type="number" id="gradeFatInput" class="matrix-number-input" value="4.0" step="0.5" min="0">
@@ -372,9 +419,9 @@
               </div>
 
               <div class="matrix-field">
-                <label>
-                  <span data-i18n="lblSodium">Sodium Mineral</span>
-                  <span class="req-star">*</span>
+                <label for="gradeSodiumInput">
+                  <span data-i18n="lblSodium">Sodium</span>
+                  <span class="req-star" title="Crucial Nutri-Grade limiting factor">*</span>
                 </label>
                 <div class="field-input-box">
                   <input type="number" id="gradeSodiumInput" class="matrix-number-input" value="150" step="10" min="0">
@@ -383,9 +430,9 @@
               </div>
 
               <div class="matrix-field">
-                <label>
-                  <span data-i18n="lblProtein">Dietary Protein</span>
-                  <span class="optional-pill">Optional</span>
+                <label for="gradeProteinInput">
+                  <span data-i18n="lblProtein">Protein</span>
+                  <span class="optional-pill">Beneficial</span>
                 </label>
                 <div class="field-input-box">
                   <input type="number" id="gradeProteinInput" class="matrix-number-input" value="15.0" step="0.5" min="0">
@@ -394,9 +441,9 @@
               </div>
 
               <div class="matrix-field">
-                <label>
+                <label for="gradeCarbInput">
                   <span data-i18n="lblCarbs">Carbohydrates</span>
-                  <span class="optional-pill">Optional</span>
+                  <span class="optional-pill">Energy</span>
                 </label>
                 <div class="field-input-box">
                   <input type="number" id="gradeCarbInput" class="matrix-number-input" value="10.0" step="0.5" min="0">
@@ -405,9 +452,9 @@
               </div>
 
               <div class="matrix-field">
-                <label>
+                <label for="gradeFiberInput">
                   <span data-i18n="lblFibre">Dietary Fibre</span>
-                  <span class="optional-pill">Optional</span>
+                  <span class="optional-pill">Beneficial</span>
                 </label>
                 <div class="field-input-box">
                   <input type="number" id="gradeFiberInput" class="matrix-number-input" value="3.5" step="0.5" min="0">
@@ -419,18 +466,18 @@
 
             <!-- Quick Benchmark Test Cases -->
             <div class="benchmarks-strip">
-              <span class="benchmark-label" data-i18n="gradePresetsLabel">Standard Benchmarks:</span>
+              <span class="benchmark-label" data-i18n="gradePresetsLabel">Test Benchmarks:</span>
               <div class="benchmark-pills">
-                <button class="benchmark-pill" id="presetHealthy">Clean Grade A</button>
-                <button class="benchmark-pill" id="presetModerate">Balanced Grade B</button>
-                <button class="benchmark-pill" id="presetSweet">High-Sugar Grade C</button>
-                <button class="benchmark-pill" id="presetFatty">High-Lipid Grade C</button>
+                <button class="benchmark-pill" id="presetHealthy">🌿 Clean Grade A</button>
+                <button class="benchmark-pill" id="presetModerate">⚖️ Balanced Grade B</button>
+                <button class="benchmark-pill" id="presetSweet">🍬 High Sugar (C)</button>
+                <button class="benchmark-pill" id="presetFatty">🧈 High Fat (C)</button>
               </div>
             </div>
 
             <button class="btn-solid-primary btn-full-width" id="executeGradePredictBtn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 2v7.31M14 2v7.31M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0"/></svg>
-              <span data-i18n="btnPredictGrade">Run Random Forest Inference</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <span data-i18n="btnPredictGrade">Run Nutri-Grade AI Prediction</span>
             </button>
           </div>
 
@@ -439,10 +486,10 @@
             
             <div class="standby-placeholder" id="gradePlaceholder">
               <div class="standby-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 2v7.31M14 2v7.31M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8Z"/><path d="m9 12 2 2 4-4"/></svg>
               </div>
-              <h3 class="standby-title" data-i18n="readyToPredict">Inference Engine Standby</h3>
-              <p class="standby-text" data-i18n="readyToPredictSub">Click 'Run Random Forest Inference' to evaluate classification probabilities.</p>
+              <h3 class="standby-title" data-i18n="readyToPredict">Formulation Standby</h3>
+              <p class="standby-text" data-i18n="readyToPredictSub">Click 'Run Nutri-Grade AI Prediction' to calculate class probabilities and dietary guidance.</p>
             </div>
 
             <div class="active-diagnostic-view" id="gradeActiveDisplay" style="display: none;">
@@ -451,7 +498,7 @@
               <div class="diagnostic-grade-banner" id="gradeBanner">
                 <div class="grade-badge-circle" id="gradeCircle">A</div>
                 <div class="grade-classification-meta">
-                  <span class="diagnostic-eyebrow" data-i18n="predictedGradeLabel">Predicted Health Grade</span>
+                  <span class="diagnostic-eyebrow" data-i18n="predictedGradeLabel">Predicted Nutri-Grade</span>
                   <h3 class="diagnostic-grade-name" id="gradeTitle">Grade A (Healthy)</h3>
                   <div class="probability-chip" id="gradeConfidencePill">Confidence: 98.5%</div>
                 </div>
@@ -463,21 +510,21 @@
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                 </div>
                 <div class="atwater-details">
-                  <span class="atwater-label" data-i18n="atwaterTitle">Atwater Caloric Consistency Check</span>
+                  <span class="atwater-label" data-i18n="atwaterTitle">Atwater Energy Balance</span>
                   <p class="atwater-text" id="atwaterDesc">Calculated caloric density: <strong>136 kcal</strong> based on macronutrient split (Fat×9 + Prot×4 + Carb×4).</p>
                 </div>
               </div>
 
               <!-- Posterior Class Probability Distribution -->
               <div class="probabilities-distribution-block">
-                <h4 class="distribution-title" data-i18n="classProbabilities">Posterior Class Probability Distribution</h4>
+                <h4 class="distribution-title" data-i18n="classProbabilities">Classification Probability Breakdown</h4>
                 
                 <div class="prob-distribution-row">
                   <div class="prob-name">Grade A (Healthy)</div>
                   <div class="prob-meter-bg">
                     <div class="prob-meter-fill fill-emerald" id="probBarA" style="width: 90%;"></div>
                   </div>
-                  <span class="prob-number font-mono" id="probPctA">90.0%</span>
+                  <span class="prob-number font-numeric" id="probPctA">90.0%</span>
                 </div>
 
                 <div class="prob-distribution-row">
@@ -485,7 +532,7 @@
                   <div class="prob-meter-bg">
                     <div class="prob-meter-fill fill-amber" id="probBarB" style="width: 8%;"></div>
                   </div>
-                  <span class="prob-number font-mono" id="probPctB">8.0%</span>
+                  <span class="prob-number font-numeric" id="probPctB">8.0%</span>
                 </div>
 
                 <div class="prob-distribution-row">
@@ -493,14 +540,14 @@
                   <div class="prob-meter-bg">
                     <div class="prob-meter-fill fill-ruby" id="probBarC" style="width: 2%;"></div>
                   </div>
-                  <span class="prob-number font-mono" id="probPctC">2.0%</span>
+                  <span class="prob-number font-numeric" id="probPctC">2.0%</span>
                 </div>
 
               </div>
 
               <!-- Dietary Recommendation Callout -->
               <div class="guidance-box" id="gradeAdviceCard">
-                <h4 class="guidance-title">Clinical Recommendation</h4>
+                <h4 class="guidance-title" data-i18n="dietaryGuidanceTitle">Nutritional Interpretation</h4>
                 <p class="guidance-body" id="adviceText">Compliant with healthy dietary guidelines. Macronutrient split demonstrates balanced nutrient density.</p>
               </div>
 
@@ -515,11 +562,14 @@
       <!-- TAB 4: 2D PCA CLUSTER MAP -->
       <!-- ================================================================= -->
       <section class="view-panel" id="tab-pca">
-        <div class="panel-header-block">
-          <div>
-            <span class="eyebrow-badge" data-i18n="pcaEyebrow">DIMENSIONALITY REDUCTION & SEGMENTATION</span>
-            <h2 class="view-title" data-i18n="pcaHeading">2D Principal Component Nutrition Map</h2>
-            <p class="view-subtitle" data-i18n="pcaDesc">11-dimensional standardized nutrient vectors projected onto 2 principal component axes with K-Means (K=5) clustering.</p>
+        <div class="hero-culinary-card">
+          <div class="hero-text-block">
+            <div class="hero-context-tag">
+              <span class="context-tag-dot"></span>
+              <span data-i18n="pcaContextTag">Unsupervised Clustering & 2D Projection</span>
+            </div>
+            <h1 class="hero-headline" data-i18n="pcaHeading">2D Culinary Nutrition Landscape</h1>
+            <p class="hero-subheading" data-i18n="pcaDesc">11-dimensional nutritional vectors projected onto 2 principal components. Explore how recipes group into 5 distinct dietary clusters.</p>
           </div>
           <div class="cluster-legend-badges" id="clusterLegendPills">
             <!-- Dynamically generated cluster badges -->
@@ -542,15 +592,18 @@
       <!-- TAB 5: MODEL EVALUATION & ANALYTICS -->
       <!-- ================================================================= -->
       <section class="view-panel" id="tab-eval">
-        <div class="panel-header-block">
-          <div>
-            <span class="eyebrow-badge" data-i18n="evalEyebrow">VALIDATION METRICS & INTERPRETABILITY</span>
-            <h2 class="view-title" data-i18n="evalHeading">Machine Learning Performance Analytics</h2>
-            <p class="view-subtitle" data-i18n="evalDesc">Quantified validation benchmarks for the Random Forest Classifier on stratified held-out test data.</p>
+        <div class="hero-culinary-card">
+          <div class="hero-text-block">
+            <div class="hero-context-tag">
+              <span class="context-tag-dot"></span>
+              <span data-i18n="evalContextTag">Validation Benchmarks & Interpretability</span>
+            </div>
+            <h1 class="hero-headline" data-i18n="evalHeading">Machine Learning Model Performance</h1>
+            <p class="hero-subheading" data-i18n="evalDesc">Stratified held-out test evaluation benchmarks for the Random Forest Classifier, including confusion matrix and feature contribution analysis.</p>
           </div>
         </div>
 
-        <!-- KPI Cards Grid -->
+        <!-- KPI Cards Row -->
         <div class="kpi-metrics-row">
           
           <div class="kpi-metric-box">
@@ -558,8 +611,8 @@
               <span class="kpi-label" data-i18n="metricAccuracy">Classification Accuracy</span>
               <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
             </div>
-            <div class="kpi-figure text-emerald font-mono" id="evalAccuracy">98.0%</div>
-            <span class="kpi-subtext">Stratified 80/20 Test Split</span>
+            <div class="kpi-figure text-emerald font-numeric" id="evalAccuracy">98.0%</div>
+            <span class="kpi-subtext" data-i18n="metricAccSub">Stratified 80/20 Test Split</span>
           </div>
 
           <div class="kpi-metric-box">
@@ -567,8 +620,8 @@
               <span class="kpi-label" data-i18n="metricMacroF1">Macro F1-Score</span>
               <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
             </div>
-            <div class="kpi-figure font-mono" id="evalMacroF1">0.976</div>
-            <span class="kpi-subtext">Unweighted Mean per Class</span>
+            <div class="kpi-figure font-numeric" id="evalMacroF1">0.976</div>
+            <span class="kpi-subtext" data-i18n="metricF1Sub">Unweighted Mean per Class</span>
           </div>
 
           <div class="kpi-metric-box">
@@ -576,8 +629,8 @@
               <span class="kpi-label" data-i18n="metricTestSamples">Held-Out Test Sample</span>
               <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
             </div>
-            <div class="kpi-figure font-mono" id="evalTestCount">203</div>
-            <span class="kpi-subtext">Dishes Evaluated</span>
+            <div class="kpi-figure font-numeric" id="evalTestCount">203</div>
+            <span class="kpi-subtext" data-i18n="metricSampleSub">Dishes Evaluated</span>
           </div>
 
           <div class="kpi-metric-box">
@@ -585,8 +638,8 @@
               <span class="kpi-label" data-i18n="metricTrees">Ensemble Estimators</span>
               <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
             </div>
-            <div class="kpi-figure font-mono">100</div>
-            <span class="kpi-subtext">Gini Impurity Decision Trees</span>
+            <div class="kpi-figure font-numeric">100</div>
+            <span class="kpi-subtext" data-i18n="metricTreesSub">Gini Impurity Decision Trees</span>
           </div>
 
         </div>
@@ -608,8 +661,8 @@
           <!-- Feature Importance Card -->
           <div class="bento-card">
             <div class="bento-header">
-              <h3 class="bento-title" data-i18n="featImpHeading">Feature Importances (Gini Decrease)</h3>
-              <span class="bento-desc" data-i18n="featImpCaption">Relative contribution of each nutrient feature toward classification</span>
+              <h3 class="bento-title" data-i18n="featImpHeading">Nutrient Feature Importance</h3>
+              <span class="bento-desc" data-i18n="featImpCaption">Gini impurity decrease across decision tree ensembles</span>
             </div>
             <div class="feature-canvas-container">
               <canvas id="featureImpChart"></canvas>
@@ -623,18 +676,21 @@
       <!-- TAB 6: DATASET EXPLORER -->
       <!-- ================================================================= -->
       <section class="view-panel" id="tab-explorer">
-        <div class="panel-header-block">
-          <div>
-            <span class="eyebrow-badge" data-i18n="explorerEyebrow">ENTERPRISE DATA REGISTRY</span>
-            <h2 class="view-title" data-i18n="explorerHeading">Nutritional Dataset Catalog</h2>
-            <p class="view-subtitle" data-i18n="explorerDesc">Explore and query the 1,014 indexed dishes with computed NRF 5.3 Health Scores and Nutri-Grades.</p>
+        <div class="hero-culinary-card">
+          <div class="hero-text-block">
+            <div class="hero-context-tag">
+              <span class="context-tag-dot"></span>
+              <span data-i18n="explorerContextTag">Indexed Food Registry</span>
+            </div>
+            <h1 class="hero-headline" data-i18n="explorerHeading">Recipe Nutrition Catalog</h1>
+            <p class="hero-subheading" data-i18n="explorerDesc">Browse 1,014 authentic Indian culinary items with calculated NRF 5.3 Nutrient Density Scores and Nutri-Grades.</p>
           </div>
 
           <!-- Filter Controls -->
           <div class="catalog-filters-row">
             <div class="table-search-box">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-              <input type="text" id="explorerSearchInput" class="table-search-input" placeholder="Filter dishes..." autocomplete="off">
+              <input type="text" id="explorerSearchInput" class="table-search-input" placeholder="Search recipe by name..." autocomplete="off">
             </div>
             <select id="explorerCategoryFilter" class="clean-select select-compact">
               <option value="" selected>All Clusters</option>
@@ -655,11 +711,11 @@
               <thead>
                 <tr>
                   <th>#</th>
-                  <th data-i18n="thDishName">Dish Identifier</th>
+                  <th data-i18n="thDishName">Recipe Name</th>
                   <th data-i18n="thCategory">Cluster Profile</th>
-                  <th data-i18n="thGrade">Nutri-Grade</th>
+                  <th data-i18n="thGrade">Grade</th>
                   <th data-i18n="thNRF">NRF 5.3</th>
-                  <th data-i18n="thCalories">Energy (kcal)</th>
+                  <th data-i18n="thCalories">Calories (kcal)</th>
                   <th data-i18n="thProtein">Protein (g)</th>
                   <th data-i18n="thCarbs">Carbs (g)</th>
                   <th data-i18n="thFats">Fats (g)</th>
@@ -678,10 +734,10 @@
             <div class="pagination-btn-group">
               <button class="pagination-btn" id="prevPageBtn" disabled>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
-                <span>Previous</span>
+                <span data-i18n="btnPrev">Previous</span>
               </button>
               <button class="pagination-btn" id="nextPageBtn">
-                <span>Next</span>
+                <span data-i18n="btnNext">Next</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
               </button>
             </div>
@@ -691,12 +747,12 @@
 
     </main>
 
-    <!-- ENTERPRISE FOOTER -->
+    <!-- FOOTER -->
     <footer class="app-footer-bar">
       <div class="footer-inner">
         <div class="footer-brand">
-          <span class="footer-title">NutriPulse Intelligence</span>
-          <span class="footer-copy">© 2026 Production-Grade Nutritional Machine Learning System</span>
+          <span class="footer-title">NutriSavor AI</span>
+          <span class="footer-copy">© 2026 Intelligent Culinary Nutrition & Health Analytics</span>
         </div>
         <div class="footer-attribution">
           <span>Engineered by <strong>Dechatorn Laikhain</strong> · ML & Data Science</span>
@@ -706,18 +762,18 @@
 
   <!-- DISH CATALOG POPUP MODAL -->
   <div class="modal-overlay" id="catalogModalOverlay" style="display: none;">
-    <div class="modal-card" role="dialog" aria-modal="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalCatalogTitle">
       <div class="modal-header">
         <div class="modal-header-meta">
           <div class="modal-icon-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
           </div>
           <div>
-            <h3 class="modal-title" data-i18n="modalCatalogTitle">Database Dish Catalog (1,014 Items)</h3>
-            <p class="modal-subtitle" data-i18n="modalCatalogSub">Click any dish to instantly select and compute similarity recommendations</p>
+            <h3 class="modal-title" id="modalCatalogTitle" data-i18n="modalCatalogTitle">Recipe Catalog (1,014 Items)</h3>
+            <p class="modal-subtitle" data-i18n="modalCatalogSub">Click any recipe to select it as reference and instantly calculate matches</p>
           </div>
         </div>
-        <button class="modal-close-btn" id="closeCatalogModalBtn" title="Close" aria-label="Close modal">
+        <button class="modal-close-btn" id="closeCatalogModalBtn" title="Close" aria-label="Close dialog">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
         </button>
       </div>
@@ -726,7 +782,7 @@
       <div class="modal-filter-strip">
         <div class="modal-search-box">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          <input type="text" id="modalDishSearchInput" class="modal-search-input" placeholder="Search by name (e.g. Paneer, Chicken, Dal, Soup)..." autocomplete="off">
+          <input type="text" id="modalDishSearchInput" class="modal-search-input" placeholder="Search recipe (e.g. Paneer, Chicken, Dal, Dosa, Rice)..." autocomplete="off">
         </div>
         <div class="modal-category-pills" id="modalCategoryFilterPills">
           <button class="modal-cat-pill active" data-cat="">All Categories</button>
